@@ -15,7 +15,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Console.Write("Input a letter here ...");
+       // Console.Write("Input a letter here ...");
         var RandomWords = new List<string>()
         {
             "apples",
@@ -29,16 +29,8 @@ public class Program
    
 
         GameOne.CheckingLetters();
-        
 
-
-
-
-
-
-    
-       
-            
+        GameOne.Outcome();        
       
 
               

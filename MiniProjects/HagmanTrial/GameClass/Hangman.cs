@@ -16,11 +16,7 @@ namespace GameClass
         public List<string> Letters = new List<string>();
 
         public List<string> RandomWords;
-        //    {
-          //  "apples",
-            //"kiwi",
-            //"Avocado",
-            //"Bananas" };
+        
     
 
         public Hangman(int lives, List<string> rwords)
@@ -30,13 +26,6 @@ namespace GameClass
             this.ChosenWord = Randomize();
         }
 
-        //public GameOne(List<string> RandomWords)
-        //{
-        //    string word1;
-        //    string word2;
-        //    string word3;
-        //    string word4;
-        //}
         public string Randomize()
         {
             Random random = new Random();
@@ -45,15 +34,51 @@ namespace GameClass
             
         }
 
+        public void HandleGuess()
+        {
+            while (Lives != 0)
+            {
+                Console.Write("Input the guess letter here ..  ");
+
+
+                var key = Console.ReadKey().Key.ToString().ToLower();
+
+
+                if (Letters.Contains(key))
+                {
+
+                    Console.WriteLine(" You already entered this letter! ");
+                }
+
+
+                Letters.Add(key);
+
+
+                if (!ChosenWord.Contains(key))
+                {
+                    Lives--;
+                }
+
+
+
+                if (Lives > 0)
+                {
+
+                    Console.WriteLine($" The letter {key} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
+                }
+            }
+        }
+
+
         public void CheckingLetters()
         {
             while (Lives != 0)
             {
                 int charactersLeft = 0;
 
-                foreach (string word in RandomWords)
+                foreach (char character in ChosenWord)
                 {
-                    string letter = word.ToString();
+                    string letter = character.ToString();
                     if (Letters.Contains(letter))
                     {
                         Console.Write(letter);
@@ -74,35 +99,11 @@ namespace GameClass
             }
         }
 
-        public void HandleGuess()
+       
+
+
+        public void  Outcome()
         {
-
-            var key = Console.ReadKey().Key.ToString().ToLower();
-
-
-            if (Letters.Contains(key))
-            {
-
-                Console.WriteLine("You already entered this letter!");
-            }
-
-
-            Letters.Add(key);
-
-
-            if (!ChosenWord.Contains(key))
-            {
-                Lives--;
-
-            }
-            
-            if (Lives > 0)
-            {
-
-                Console.WriteLine($"The letter {key} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
-            }
-            
-
             if (Lives > 0)
             {
 
@@ -112,7 +113,12 @@ namespace GameClass
             {
                 Console.WriteLine($"You lost! The word was {ChosenWord}.");
             }
+
+
         }
+
+
+
     }
 }
 
