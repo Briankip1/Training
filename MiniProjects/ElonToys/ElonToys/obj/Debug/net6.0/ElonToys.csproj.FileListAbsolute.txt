@@ -1,0 +1,5 @@
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\ElonToys\ElonToys\obj\Debug\net6.0\ElonToys.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\ElonToys\ElonToys\obj\Debug\net6.0\ElonToys.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\ElonToys\ElonToys\obj\Debug\net6.0\ElonToys.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\ElonToys\ElonToys\obj\Debug\net6.0\ElonToys.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\ElonToys\ElonToys\obj\Debug\net6.0\ElonToys.csproj.CoreCompileInputs.cache

@@ -23,16 +23,18 @@ public class Program
             "Avocado"
         };
 
+        while(Lives != 0)
+        {
         Hangman GameOne = new Hangman(6, RandomWords);
 
         GameOne.HandleGuess();
-   
 
         GameOne.CheckingLetters();
+        }
 
         GameOne.Outcome();        
       
-
+        Console.WriteLine(GameOne.GetGameHistory());
               
     }
 }
