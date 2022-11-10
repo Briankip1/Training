@@ -38,90 +38,20 @@ namespace GameClass
 
         public void HandleGuess()
         {
-            //while (Lives != 0)
-            //{
-            //    Console.Write("Input the guess letter here ..  ");
+            
+            Console.WriteLine(" Input Letter here: ");
+            var guess = Console.ReadLine().ToString().ToLower();
+        
+            Letters.Add(guess);
 
+            if (!ChosenWord.Contains(guess))
+            {
+                //Console.Write(guess + "_");
 
-            //    var key = Console.ReadKey().Key;
-            //    string guessLetter = key.ToString().ToLower();
+                Lives--;
+                Console.WriteLine($" The letter {guess} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
 
-
-            //    if (Letters.Contains(guessLetter))
-            //    {
-
-            //        Console.WriteLine(" You already entered this letter! ");
-            //    }
-
-
-
-            //    Letters.Add(guessLetter);
-
-
-            //    if (!ChosenWord.Contains(guessLetter))
-            //    {
-            //        Lives--;
-            //    }
-                    Console.WriteLine("Input Letter here: ");
-                    var guess = Console.ReadLine().ToString().ToLower();
-
-                    //if (ChosenWord.Contains(guess))
-                    //{
-                    //    Console.Write(guess);
-
-                    //}
-                    Letters.Add(guess);
-
-                    if (!ChosenWord.Contains(guess))
-                    {
-                        //Console.Write(guess + "_");
-
-                        Lives--;
-                        Console.WriteLine($" The letter {guess} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
-
-                    }
-
-                    //if (Lives > 0)
-                    //{
-
-                    //Console.WriteLine($" The letter {guess} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
-                    // }
-                   //  int charactersLeft = 0;
-
-
-                  //  foreach (char character in ChosenWord)
-                  //  {
-                   //     string letter = character.ToString();
-                     //   if (Letters.Contains(letter))
-                     //   {
-                    //        Console.Write(letter);
-                    //    }
-
-                    //    else
-                    //    {
-                    //        Console.Write("_");
-
-                     //       charactersLeft++;
-                     //   }
-                  //  }
-
-                 //      if (charactersLeft == 0)
-                //    {
-                 //       break;  
-                //    }
-                    
-                    
-               // }
-
-            //if (Lives > 0)
-             //   {
-
-            //        Console.WriteLine($"You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");
-             //   }
-            //    else
-           //    {
-                 //   Console.WriteLine($"You lost! The word was {ChosenWord}.");
-               // }
+            }
 
         }
 
@@ -148,13 +78,11 @@ namespace GameClass
                 }
             
 
+            }  
+            if(charactersLeft == 0)
+            {
+                Console.WriteLine($"You lost, the correct word is {ChosenWord}");
             }
-           // if (charactersLeft == 0)
-           // {
-             
-           // }
-            
-
         }
 
 
