@@ -7,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;
 using System.Collections;
+using System.ComponentModel;
 
 //Console.WriteLine("Enter the guess characters below...");
 //Console.ReadLine();
@@ -23,21 +24,22 @@ public class Program
             "Avocado"
         };
 
-        Hangman GameOne = new Hangman(10, RandomWords);
+        Hangman GameOne = new Hangman(6, RandomWords);
+        // condition to break the loop if the correct word is guessed 
+        var correctWord = false;
 
-        while(GameOne.Lives != 0)
+        while(GameOne.Lives !=0 && correctWord != true)
         {
 
             GameOne.HandleGuess();
 
-            GameOne.CheckingLetters();
+           correctWord = GameOne.DisplayProgress();        
+        } 
+        GameOne.Outcome();
 
-        } GameOne.Outcome();
-        
+        GameOne.ListOfGuesses(GameOne.keyedGuess, DateTime.Now);
 
-                
-      
         Console.WriteLine(GameOne.GetGameHistory());
-              
+        Console.ReadLine();    
     }
 }

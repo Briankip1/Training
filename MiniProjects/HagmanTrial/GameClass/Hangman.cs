@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,23 @@ namespace GameClass
 
         public int Lives;
         public string ChosenWord = " ";
-        public List<string> Letters = new List<string>();
+        public string guess;
+        public string guessLetter
+        {
+            get
+            {
+                string newGuess = " ";
+                foreach(var item in HistoryTable)
+                {
+                    newGuess = newGuess + item.guessLetter;
+                }
+                return newGuess;
+            
+            }
+        } 
+            
+            
+        public List<string> GuessedLetters = new List<string>();
         public List<GameHistory> HistoryTable = new List<GameHistory>();
 
         public List<string> RandomWords;
@@ -24,39 +41,18 @@ namespace GameClass
             this.Lives = lives;
             this.RandomWords = rwords;
             this.ChosenWord = Randomize();
+            ListOfGuesses(guessLetter, DateTime.Now);
         }
 
         public string Randomize()
         {
             Random random = new Random();
 
-            return RandomWords[random.Next(0, RandomWords.Count)];
+            return RandomWords[random.Next(0, RandomWords.Count)].ToLower();
 
         }
 
-
-
-        public void HandleGuess()
-        {
-            
-            Console.WriteLine(" Input Letter here: ");
-            var guess = Console.ReadLine().ToString().ToLower();
-        
-            Letters.Add(guess);
-
-            if (!ChosenWord.Contains(guess))
-            {
-                //Console.Write(guess + "_");
-
-                Lives--;
-                Console.WriteLine($" The letter {guess} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
-
-            }
-
-        }
-
-
-        public void CheckingLetters()
+        public bool DisplayProgress()
         {
 
             int charactersLeft = 0;
@@ -65,51 +61,87 @@ namespace GameClass
             foreach (char character in ChosenWord)
             {
                 string letter = character.ToString();
-                if (Letters.Contains(letter))
+
+                if (GuessedLetters.Contains(letter))
                 {
                     Console.Write(letter);
-                }
-
+                } 
+                
                 else
                 {
-                    Console.Write("_");
+                    Console.Write(" _ ");
         
                     charactersLeft++;
                 }
+        
+            }      
+            return charactersLeft == 0;  
+        }
+
+        public void HandleGuess()
+        {
+            Console.WriteLine(" Input Letter here: ");
+            guess = Console.ReadLine().ToString().ToLower();
+            
             
 
-            }  
-            if(charactersLeft == 0)
+            if (GuessedLetters.Contains(guess))
             {
-                Console.WriteLine($"You lost, the correct word is {ChosenWord}");
+                Console.WriteLine(" You already entered the letter "); 
+                return;
+                
             }
+             GuessedLetters.Add(guess);
+            
+            
+            if (!ChosenWord.Contains(guess))
+            {
+
+                Lives--;
+
+                if(Lives > 0)
+                {
+                    Console.WriteLine($" The letter {guess} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
+
+                } 
+            } 
+         
+            
         }
 
 
-       public void Outcome()
+        public void Outcome()
+        {
+            if (Lives > 0)
             {
-                if (Lives > 0)
-                {
 
-                    Console.WriteLine($"You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");
-                }
-                else
-                {
-                    Console.WriteLine($"You lost! The word was {ChosenWord}.");
-                }
-       }
+                Console.WriteLine($" You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");
+            }
+            else
+            {
+                Console.WriteLine($" You lost! The word was {ChosenWord}.");
+            }
+        }
+
+        public void ListOfGuesses(guess, DateTime date)
+        {
+            var keyedGuess = new GameHistory (guess, date);
+            HistoryTable.Add(keyedGuess);
+        }
+
+
 
          public string GetGameHistory()
          {
-               var gameHistory = new StringBuilder();
-               gameHistory.AppendLine("Date \t\t guessLetter");
+               var gameHistoryTable = new StringBuilder();
+               gameHistoryTable.AppendLine("Date \t\t guessLetter");
 
-                foreach(GameHistory guess in HistoryTable)
+                foreach( var item in HistoryTable)
                 {
-                    gameHistory.AppendLine($"{guess.Date.ToString()}\t{guess.guessLetter}");
+                    gameHistoryTable.AppendLine($"{item.Date}\t{item.guessLetter}");
                 }
 
-                return gameHistory.ToString();
+                return gameHistoryTable.ToString();
          }
     }
 }
