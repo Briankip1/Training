@@ -30,12 +30,13 @@ public class Program
 
         while(GameOne.Lives !=0 && correctWord != true)
         {
+            GameOne.DisplayProgress(); 
 
             GameOne.HandleGuess();
-
-           correctWord = GameOne.DisplayProgress();        
+            GameOne.CheckForWin();
+           correctWord = GameOne.CheckForWin();       
         } 
-        GameOne.Outcome();
+        
 
         GameOne.ListOfGuesses(GameOne.keyedGuess, DateTime.Now);
 

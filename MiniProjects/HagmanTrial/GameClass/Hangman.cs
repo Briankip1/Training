@@ -52,7 +52,7 @@ namespace GameClass
 
         }
 
-        public bool DisplayProgress()
+        public void DisplayProgress()
         {
 
             int charactersLeft = 0;
@@ -75,7 +75,7 @@ namespace GameClass
                 }
         
             }      
-            return charactersLeft == 0;  
+           // return charactersLeft == 0;  
         }
 
         public void HandleGuess()
@@ -83,43 +83,46 @@ namespace GameClass
             Console.WriteLine(" Input Letter here: ");
             guess = Console.ReadLine().ToString().ToLower();
             
-            
-
             if (GuessedLetters.Contains(guess))
             {
                 Console.WriteLine(" You already entered the letter "); 
-                return;
-                
+                return;   
             }
              GuessedLetters.Add(guess);
             
-            
             if (!ChosenWord.Contains(guess))
             {
-
-                Lives--;
+               Lives--;
 
                 if(Lives > 0)
                 {
                     Console.WriteLine($" The letter {guess} is not in the word. You have {Lives} {(Lives == 1 ? "try" : "tries")} left.");
-
                 } 
-            } 
-         
-            
+            }      
         }
 
-
-        public void Outcome()
+        public bool CheckForWin()
         {
             if (Lives > 0)
             {
+                 int charactersLeft = 0;
+                foreach (char character in ChosenWord)
+                {
+                    string letter = character.ToString();
 
+                    if (!GuessedLetters.Contains(letter))
+                    {
+                       charactersLeft++;
+                    } 
+                }      
                 Console.WriteLine($" You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");
+
+                return charactersLeft == 0;               
             }
             else
             {
                 Console.WriteLine($" You lost! The word was {ChosenWord}.");
+                return false;
             }
         }
 

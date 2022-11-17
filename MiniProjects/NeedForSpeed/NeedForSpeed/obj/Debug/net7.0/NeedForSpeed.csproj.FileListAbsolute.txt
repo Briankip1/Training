@@ -1,0 +1,5 @@
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\NeedForSpeed\NeedForSpeed\obj\Debug\net7.0\NeedForSpeed.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\NeedForSpeed\NeedForSpeed\obj\Debug\net7.0\NeedForSpeed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\NeedForSpeed\NeedForSpeed\obj\Debug\net7.0\NeedForSpeed.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\NeedForSpeed\NeedForSpeed\obj\Debug\net7.0\NeedForSpeed.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\NeedForSpeed\NeedForSpeed\obj\Debug\net7.0\NeedForSpeed.csproj.CoreCompileInputs.cache
