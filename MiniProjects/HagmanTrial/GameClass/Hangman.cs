@@ -14,21 +14,7 @@ namespace GameClass
         public int Lives;
         public string ChosenWord = " ";
         public string guess;
-        public string guessLetter
-        {
-            get
-            {
-                string newGuess = " ";
-                foreach(var item in HistoryTable)
-                {
-                    newGuess = newGuess + item.guessLetter;
-                }
-                return newGuess;
-            
-            }
-        } 
-            
-            
+       //public string guessLetter;    
         public List<string> GuessedLetters = new List<string>();
         public List<GameHistory> HistoryTable = new List<GameHistory>();
 
@@ -41,7 +27,7 @@ namespace GameClass
             this.Lives = lives;
             this.RandomWords = rwords;
             this.ChosenWord = Randomize();
-            ListOfGuesses(guessLetter, DateTime.Now);
+           // ListOfGuesses(guessLetter, DateTime.Now);
         }
 
         public string Randomize()
@@ -89,6 +75,8 @@ namespace GameClass
                 return;   
             }
              GuessedLetters.Add(guess);
+
+            HistoryTable.Add(new GameHistory(guess, DateTime.Now));
             
             if (!ChosenWord.Contains(guess))
             {
@@ -112,36 +100,27 @@ namespace GameClass
 
                     if (!GuessedLetters.Contains(letter))
                     {
-                       charactersLeft++;
-                    } 
-                }      
-                Console.WriteLine($" You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");
-
-                return charactersLeft == 0;               
+                        charactersLeft++; ;
+                    }
+                    // Console.WriteLine($" You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");    
+                }
+                return charactersLeft == 0;
             }
             else
             {
-                Console.WriteLine($" You lost! The word was {ChosenWord}.");
+                Console.WriteLine($" You lost! The correct word was {ChosenWord}.\n");
                 return false;
             }
         }
 
-        public void ListOfGuesses(guess, DateTime date)
-        {
-            var keyedGuess = new GameHistory (guess, date);
-            HistoryTable.Add(keyedGuess);
-        }
-
-
-
          public string GetGameHistory()
          {
                var gameHistoryTable = new StringBuilder();
-               gameHistoryTable.AppendLine("Date \t\t guessLetter");
+               gameHistoryTable.AppendLine("Date \t\t\t guessLetter");
 
                 foreach( var item in HistoryTable)
                 {
-                    gameHistoryTable.AppendLine($"{item.Date}\t{item.guessLetter}");
+                    gameHistoryTable.AppendLine($"{item.Date}\t\t{item.guessLetter}");
                 }
 
                 return gameHistoryTable.ToString();

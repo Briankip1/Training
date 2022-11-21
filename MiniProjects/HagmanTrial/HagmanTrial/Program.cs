@@ -33,12 +33,10 @@ public class Program
             GameOne.DisplayProgress(); 
 
             GameOne.HandleGuess();
-            GameOne.CheckForWin();
-           correctWord = GameOne.CheckForWin();       
-        } 
-        
 
-        GameOne.ListOfGuesses(GameOne.keyedGuess, DateTime.Now);
+            correctWord = GameOne.CheckForWin();
+        }
+       
 
         Console.WriteLine(GameOne.GetGameHistory());
         Console.ReadLine();    

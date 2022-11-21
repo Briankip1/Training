@@ -12,6 +12,7 @@ namespace NeedForSpeed
         public int batteryDrain;
         public int metersDriven;
         public int battery;
+        public int distanceCovered;
 
         public RemoteControlCar(int speed, int batteryDrain)
         {
@@ -19,32 +20,34 @@ namespace NeedForSpeed
             this.batteryDrain = batteryDrain;
             metersDriven = 0;
             battery = 100;
-
         }
 
         public void Drive()
         {
             metersDriven += speed;
-            batteryDrain -= battery;
+            battery -= batteryDrain;
         }
 
         public int DistanceDriven()
         {
-            return metersDriven;
+            distanceCovered = metersDriven * battery/batteryDrain;
+            return distanceCovered;
         }
         public bool BatteryDrained()
         {
-            if(battery < batteryDrain)
+            if(battery == 0)
             {
+                Console.WriteLine("Battery is done");
                 return true;
             }
             else
             {
+                Console.WriteLine($"battery {battery}%");
                 return false;
             }
         }
 
-        public static string Nitro() 
+        public static RemoteControlCar Nitro() 
         {
             return new RemoteControlCar(50, 4);
         }

@@ -3,12 +3,18 @@
 
 using NeedForSpeed;
 
-var car = RemoteControlCar.Nitro;
+var car = RemoteControlCar.Nitro();
 
-int distance = 100;
+RemoteControlCar car1 = new RemoteControlCar(20, 10);
 
-RaceTrack raceTrack = new RaceTrack(distance);
+car1.Drive();
+car1.DistanceDriven();
+car1.BatteryDrained();
 
-raceTrack.TryFinishTrack(car);
+int racetrackDistance = 500;
 
+RaceTrack raceTrack = new RaceTrack(racetrackDistance);
 
+Console.WriteLine(raceTrack.TryFinishTrack(car1));
+
+Console.ReadLine();
