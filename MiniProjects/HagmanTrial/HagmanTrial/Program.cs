@@ -28,7 +28,7 @@ public class Program
         // condition to break the loop if the correct word is guessed 
         var correctWord = false;
 
-        while(GameOne.Lives !=0 && correctWord != true)
+        while(GameOne.Lives > 0 && correctWord != true)
         {
             GameOne.DisplayProgress(); 
 
@@ -36,8 +36,7 @@ public class Program
 
             correctWord = GameOne.CheckForWin();
         }
-       
-
+ 
         Console.WriteLine(GameOne.GetGameHistory());
         Console.ReadLine();    
     }

@@ -91,40 +91,44 @@ namespace GameClass
 
         public bool CheckForWin()
         {
-            if (Lives > 0)
+            int charactersLeft = 0;
+            foreach (char character in ChosenWord)
             {
-                 int charactersLeft = 0;
-                foreach (char character in ChosenWord)
-                {
-                    string letter = character.ToString();
+                string ChosenWordLetter = character.ToString();
 
-                    if (!GuessedLetters.Contains(letter))
-                    {
-                        charactersLeft++; ;
-                    }
-                    // Console.WriteLine($" You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");    
-                }
-                return charactersLeft == 0;
+                if (!GuessedLetters.Contains(ChosenWordLetter))
+                {
+                    charactersLeft++; ;
+                }         
             }
-            else
+            if(charactersLeft == 0)
             {
-                Console.WriteLine($" You lost! The correct word was {ChosenWord}.\n");
-                return false;
+                return true;
             }
+            return false;     
+           
         }
 
-         public string GetGameHistory()
-         {
-               var gameHistoryTable = new StringBuilder();
-               gameHistoryTable.AppendLine("Date \t\t\t guessLetter");
+        public string GetGameHistory()
+        {
+            var gameHistoryTable = new StringBuilder();
+            gameHistoryTable.AppendLine("Date \t\t\t guessLetter");
 
-                foreach( var item in HistoryTable)
-                {
-                    gameHistoryTable.AppendLine($"{item.Date}\t\t{item.guessLetter}");
-                }
+            foreach (var item in HistoryTable)
+            {
+                gameHistoryTable.AppendLine($"{item.Date}\t\t{item.guessLetter}");
+            }
+            if (CheckForWin())
+            {
+                Console.WriteLine($" You won with {Lives} {(Lives == 1 ? "life" : "lives")} left!");
+            }
+            else 
+            { 
+                Console.WriteLine($" You lost! The correct word was {ChosenWord}.\n");
+            }
 
-                return gameHistoryTable.ToString();
-         }
+            return gameHistoryTable.ToString();
+        }
     }
 }
 
