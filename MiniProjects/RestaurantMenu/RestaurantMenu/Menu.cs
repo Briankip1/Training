@@ -26,15 +26,19 @@ namespace RestaurantMenu
         {
             Console.WriteLine($"{RestaurantName}\n {Items}\n");
         }
-        public int Total(List<MenuItem> order)
+        public float Total(List<MenuItem> order)
         {
-            Items.Sum(MenuItem order => order.Total);
+            //Items.Sum(MenuItem order => order.Total);
+            float totalOrderPrice = 0;
+            foreach(MenuItem Item in order) 
+            {
+                totalOrderPrice += Item.price;
+            }
+            return totalOrderPrice;
         }
-        public int Tip(List<MenuItem> order, int percent)
+        public float Tip(List<MenuItem> order, int percent)
         {
-            return order.Count * percent;
-
-
+            return Total(order) * percent/100;
         }
     }
 }
