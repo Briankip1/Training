@@ -6,3 +6,5 @@ item.Print();
 
 MenuItem item1 = new MenuItem("Egg Salad", 189, 3.69f);
 item1.Print();
+
+var Beverage = new Beverage(true);
