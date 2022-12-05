@@ -17,12 +17,11 @@ namespace RestaurantMenu
             this.name = name;
             this.calories = calories;
             this.price = price;
-            Print();
         } 
         
         public void Print()
         {
-            Console.WriteLine($"{name}\n, {calories}\n, {price}");
+           Console.WriteLine($"{name}\n {calories}\n {price}");
         }
     }
 }

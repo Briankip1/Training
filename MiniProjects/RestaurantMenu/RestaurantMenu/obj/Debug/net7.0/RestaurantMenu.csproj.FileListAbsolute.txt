@@ -1,0 +1,15 @@
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.csproj.CoreCompileInputs.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\bin\Debug\net7.0\RestaurantMenu.exe
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\bin\Debug\net7.0\RestaurantMenu.deps.json
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\bin\Debug\net7.0\RestaurantMenu.runtimeconfig.json
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\bin\Debug\net7.0\RestaurantMenu.dll
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\bin\Debug\net7.0\RestaurantMenu.pdb
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.dll
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\refint\RestaurantMenu.dll
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.pdb
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\RestaurantMenu.genruntimeconfig.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\RestaurantMenu\RestaurantMenu\obj\Debug\net7.0\ref\RestaurantMenu.dll
