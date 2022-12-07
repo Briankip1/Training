@@ -11,7 +11,8 @@ namespace RestaurantMenu
         public static void Main(string[] args)
         {
             Menu menu = new Menu("BurgerKing");
-            menu.Add(MenuItem.item1);
+            List<MenuItem> Items = new List<MenuItem>();
+            menu.Add(Items);
         }
     }
 }

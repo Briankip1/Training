@@ -16,7 +16,7 @@ namespace RestaurantMenu
         public Menu(string name)
         {
             RestaurantName = name;
-            //Items = new List<MenuItem>();
+           // Items = new List<MenuItem>();
         }
         public void Add(MenuItem Item)
         {
@@ -30,9 +30,9 @@ namespace RestaurantMenu
         {
             //Items.Sum(MenuItem order => order.Total);
             float totalOrderPrice = 0;
-            foreach(MenuItem Item in order) 
+            foreach(MenuItem dish in order) 
             {
-                totalOrderPrice += Item.price;
+                totalOrderPrice += dish.price;
             }
             return totalOrderPrice;
         }
