@@ -19,7 +19,7 @@ namespace RestaurantMenu
             this.price = price;
         } 
         
-        public void Print()
+        public virtual void Print()
         {
            Console.WriteLine($"{name}\n {calories}\n {price}");
         }

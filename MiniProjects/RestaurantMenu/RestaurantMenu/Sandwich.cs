@@ -14,5 +14,10 @@ namespace RestaurantMenu
         {
             this.breadType = breadType;
         }
+
+        public override void Print()
+        {
+            Console.WriteLine($"{name}\n {calories}\n {price}");
+        }
     }
 }

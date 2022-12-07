@@ -13,5 +13,9 @@ namespace RestaurantMenu
         {
             this.iced = iced;
         }
+        public override void Print()
+        {
+            Console.WriteLine($"{name}\n {calories}\n {price}");
+        }
     }
 }
