@@ -16,7 +16,7 @@ namespace RestaurantMenu
         public Menu(string name)
         {
             RestaurantName = name;
-           // Items = new List<MenuItem>();
+            Items = new List<MenuItem>();
         }
         public void Add(MenuItem Item)
         {

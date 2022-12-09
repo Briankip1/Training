@@ -10,7 +10,11 @@ namespace RestaurantMenu
     {
         public static void Main(string[] args)
         {
-
+            Sandwich sandwich = new Sandwich("American Sub", 507, 4.99f, "seeded bread");
+            Menu menu = new Menu("BurgerKing");
+            menu.Add(sandwich);
+            Beverage beverage = new Beverage("tea", 80, 1.99f, true);
+            Console.WriteLine(menu.Add(beverage));
         }
     }
 }
