@@ -17,7 +17,8 @@ namespace RestaurantMenu
 
         public override void Print()
         {
-            Console.WriteLine($"{name}\n {calories}\n {price}");
+            base.Print();
+            Console.WriteLine(breadType);
         }
     }
 }

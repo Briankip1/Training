@@ -21,7 +21,10 @@ namespace RestaurantMenu
         
         public virtual void Print()
         {
-           Console.WriteLine($"{name}\n {calories}\n {price}");
+            var itemList = new StringBuilder();
+           itemList.AppendLine("Name\t\t Calories\t Price");
+           itemList.AppendLine($"{name}\t\t{calories}\t{price}");
+
         }
     }
 }

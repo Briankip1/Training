@@ -8,13 +8,14 @@ namespace RestaurantMenu
 {
     public class SubClassTest
     {
-        public static void Main(string[] args)
+        public static void Test(string[] args)
         {
             var sandwich = new Sandwich("American sub", 509, 6.99f, "seeded bread");
             sandwich.Print();
 
             var Beverage = new Beverage("Mountain Dew", 190, 1.99f, true);
             Beverage.Print();
+            Console.ReadLine();
         }
         
        

@@ -11,11 +11,21 @@ namespace RestaurantMenu
         public static void Main(string[] args)
         {
             Menu menu = new Menu("BurgerKing");
-            MenuItem item3 = new MenuItem("pizza", 465, 8.99f);
+            menu.Description = "The Best in town\n";
+            MenuItem item3 = new MenuItem("Chicken Burrito", 465, 8.99f);
+            menu.Add(item3);
+            MenuItem item4 = new MenuItem("Large Burger", 516, 7.98f);
+            menu.Add(item4);
+            //menu.Total();
+            menu.Print();
+
             Menu menu1 = new Menu("Original Pancake");
-            MenuItem item4 = new MenuItem("American Style Pancake", 303, 3.59f);
-            Console.WriteLine(menu.Add(item3));
-            Console.WriteLine(menu1.Add(item4));
+            menu1.Description = "Leading since 1985\n";
+            MenuItem item5 = new MenuItem("American Style Pancake\t", 303, 3.59f);
+            menu1.Add(item5);
+            menu1.Print();
+
+
             Console.ReadLine();
         }
     }

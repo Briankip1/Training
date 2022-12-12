@@ -24,11 +24,21 @@ namespace RestaurantMenu
         }
         public void Print()
         {
-            Console.WriteLine($"{RestaurantName}\n {Items}\n");
+            Console.WriteLine(RestaurantName);
+            Console.WriteLine(Description);
+            Console.WriteLine("Name\t\tCalories\tPrice");
+            foreach(MenuItem item in Items)
+            {
+                var listOfItems = new StringBuilder();
+                //listOfItems.AppendLine("Name\t\t\tCalories\t\tPrice"); 
+                listOfItems.AppendLine($"{item.name}\t\t{item.calories}\t{item.price}");
+                Console.WriteLine(listOfItems.ToString());
+                item.Print();
+            }
+ 
         }
         public float Total(List<MenuItem> order)
         {
-            //Items.Sum(MenuItem order => order.Total);
             float totalOrderPrice = 0;
             foreach(MenuItem dish in order) 
             {
