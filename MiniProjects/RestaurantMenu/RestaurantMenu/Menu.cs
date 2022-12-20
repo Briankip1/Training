@@ -49,6 +49,7 @@ namespace RestaurantMenu
         public float Tip(List<MenuItem> order, int percent)
         {
             return Total(order) * percent/100;
+            
         }
     }
 }
