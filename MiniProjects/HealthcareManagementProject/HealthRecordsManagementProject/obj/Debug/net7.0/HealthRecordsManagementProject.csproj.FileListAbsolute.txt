@@ -1,0 +1,12 @@
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\bin\Debug\net7.0\HealthRecordsManagementProject.deps.json
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\bin\Debug\net7.0\HealthRecordsManagementProject.dll
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\bin\Debug\net7.0\HealthRecordsManagementProject.pdb
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.csproj.CoreCompileInputs.cache
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.dll
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\refint\HealthRecordsManagementProject.dll
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\HealthRecordsManagementProject.pdb
+C:\Users\Poa Party Rentals\Desktop\Training\MiniProjects\HealthcareManagementProject\HealthRecordsManagementProject\obj\Debug\net7.0\ref\HealthRecordsManagementProject.dll

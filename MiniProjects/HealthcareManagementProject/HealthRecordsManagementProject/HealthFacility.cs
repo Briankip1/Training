@@ -11,8 +11,8 @@ namespace HealthRecordsManagementProject
         public string Name; 
         public string Level;
         public string UniqueID;
-        public List<Patient> PatientRecords;
-        public List<HealthCareProvider> HealthCareProviders;
+        public List<Patient> PatientRecords = new List<Patient>();
+        public List<HealthCareProvider> HealthCareProviders = new List<HealthCareProvider>();
 
         public HealthFacility(string name, string level, string uniqueID, List<Patient> patientRecords, List<HealthCareProvider> healthCareProviders)
         {
