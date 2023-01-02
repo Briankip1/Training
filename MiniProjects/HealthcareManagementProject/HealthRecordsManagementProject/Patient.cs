@@ -13,16 +13,16 @@ namespace HealthRecordsManagementProject
         public string emailAddress;
         public string phoneNumber;
         public string uniquePatientID;
-        public string homeAddress;
-        private string recordDescription;
-            public string patientRecordDesription
-        {
-            get {
-                return recordDescription;
-                }
-        }
+        public string homeAddress; 
+        //private string recordDescription;
+        //    public string patientRecordDesription
+        //{
+        //    get {
+        //        return recordDescription;
+        //        }
+        //}
 
-        public Patient(string firstName, string lastName, string emailAddress, string phoneNumber, string uniquePatientID, string homeAddress, string recordDescription)
+        public Patient(string firstName, string lastName, string emailAddress, string phoneNumber, string uniquePatientID, string homeAddress)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -30,7 +30,6 @@ namespace HealthRecordsManagementProject
             this.phoneNumber = phoneNumber;
             this.uniquePatientID = uniquePatientID;
             this.homeAddress = homeAddress;
-            this.recordDescription = recordDescription;
         }  
         
         //public string ViewRecord()

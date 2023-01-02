@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,32 +9,45 @@ namespace HealthRecordsManagementProject
 {
     public class HealthFacility
     {
-        public string Name; 
+        public string Name;
         public string Level;
         public string UniqueID;
-        public List<Patient> PatientRecords = new List<Patient>();
-        public List<HealthCareProvider> HealthCareProviders = new List<HealthCareProvider>();
+        public List<Patient> Patients = new List<Patient>();
+        public List<HealthPractitioner> HealthPractitioners = new List<HealthPractitioner>();
+        public List<VisitRecords> visits = new List<VisitRecords>();
 
-        public HealthFacility(string name, string level, string uniqueID, List<Patient> patientRecords, List<HealthCareProvider> healthCareProviders)
+        public HealthFacility(string name, string level, string uniqueID)
         {
             Name = name;
             Level = level;
             UniqueID = uniqueID;
-            PatientRecords = patientRecords;
-            HealthCareProviders = healthCareProviders;
         }
 
-        //public string RetrievePatientRecords()
-        //{
-            //Can retrieve records registered within the facility
-            //Can request access to patient records from other facilities
-        //}
-
-        // public string AuthenticateHealthProviders()
-       // {
-            //Authenticate health providers within facility before providing access to patient records
-
-       // }
+        public VisitRecords CreateVisitRecord(HealthPractitioner practitioner, Patient patient, string description, DateTime date)
+        {
+            VisitRecords NewRecord = new VisitRecords();
+            visits.Add(NewRecord);
+            return NewRecord;
+        {
+            
 
     }
+
+
+}
+    
+
+            //public string RetrievePatientRecords()
+            //{
+            //Can retrieve records registered within the facility
+            //Can request access to patient records from other facilities
+            //}
+
+            // public string AuthenticateHealthProviders()
+            // {
+            //Authenticate health providers within facility before providing access to patient records
+    }
+
+
+        
 }
