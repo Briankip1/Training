@@ -23,18 +23,17 @@ namespace HealthRecordsManagementProject
             UniqueID = uniqueID;
         }
 
-        public VisitRecords CreateVisitRecord(HealthPractitioner practitioner, Patient patient, string description, DateTime date)
+        public VisitRecords CreateVisitRecord(HealthPractitioner practitioner, Patient patient)
         {
-            VisitRecords NewRecord = new VisitRecords();
-            visits.Add(NewRecord);
-            return NewRecord;
-        {
+            VisitRecords newVisit = new VisitRecords("Description", practitioner, patient, DateTime.Now);
+            visits.Add(newVisit);
+            return newVisit;
+        }
             
 
     }
 
 
-}
     
 
             //public string RetrievePatientRecords()
@@ -46,8 +45,4 @@ namespace HealthRecordsManagementProject
             // public string AuthenticateHealthProviders()
             // {
             //Authenticate health providers within facility before providing access to patient records
-    }
-
-
-        
 }

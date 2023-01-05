@@ -12,29 +12,33 @@ public class MainClass
         Patient patient2 = new Patient("Jack", "Willis", "willisjack@gmail.com","+15698395", "UI68798", "2346 Carlson Pkwy");
 
 
-        HealthPractitioner one = new HealthPractitioner("Brian", "Davids", "briandavids@gmail.com", "Physician", "+12234657656", "HCP23573", "2756 Ranchview Ln N");
+        HealthPractitioner physician = new HealthPractitioner("Brian", "Davids", "briandavids@gmail.com", "Physician", "+12234657656", "2756 Ranchview Ln N");
+        HealthPractitioner nurse = new HealthPractitioner("Lucy", "Wayne", "waynelucy@gmail.com", "nurse", "+130984738", "264 Ave N Plymouth");
         // Console.WriteLine(one.CreatePatientRecord();
 
-        HealthFacility newHealthFacility = new("Park Nicollet", "Health Center", "HF9574");
-        newHealthFacility.CreateVisitRecord(one, patient1, "The patient complained of headache and chestpains", DateTime.Now);
+        HealthFacility parkNicollet = new("Park Nicollet", "Health Center", "HF9574");
+        parkNicollet.CreateVisitRecord(physician, patient1);
         //VisitRecords newRecord = new VisitRecords();
         //newHealthFacility.visits.Add(newRecord);
 
 
-        HealthFacility healthFacility  = new("Hennepin Healthcare", "Health Center", "HC5699");
-        healthFacility.CreateVisitRecord(one, patient1,"The patient complained of stomach upsets and diarrhoea", DateTime.Today);
+        HealthFacility hennepinHealthcare  = new("Hennepin Healthcare", "Health Center", "HC5699");
+        hennepinHealthcare.CreateVisitRecord(physician, patient1);
         //VisitRecords record = new VisitRecords();
 
 
-        for (int i = 0; i < healthFacility.visits.Count; i++)
+        for (int i = 0; i < hennepinHealthcare.visits.Count; i++)
         {
-            Console.WriteLine(healthFacility.visits[i]);
+            Console.WriteLine(hennepinHealthcare.visits[i]);
         }
 
-        healthFacility.Patients.Add(patient1);
-        foreach(Patient patient in healthFacility.Patients)
+        hennepinHealthcare.Patients.Add(patient1);
+        hennepinHealthcare.Patients.Add(patient2);
+        hennepinHealthcare.HealthPractitioners.Add(physician);
+        hennepinHealthcare.HealthPractitioners.Add(nurse);
+        foreach(HealthPractitioner one in hennepinHealthcare.HealthPractitioners)
         {
-            Console.WriteLine(patient.ToString());
+            Console.WriteLine(one);
         }
         Console.ReadLine();
     }

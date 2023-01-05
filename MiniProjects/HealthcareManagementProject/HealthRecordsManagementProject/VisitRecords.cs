@@ -8,15 +8,26 @@ namespace HealthRecordsManagementProject
 {
     public class VisitRecords
     {
+        public string description
+        {
 
-        //public string description;
-        //public DateTime date;
+            set;
+            get;
+        }
+        public HealthPractitioner practitioner;
+        public Patient patient;
+        public DateTime date;
 
-        //public VisitRecords(string Description, DateTime Date)
-        //{
-        //    description = Description;
-        //    date = Date;
-        //}
-
+       public VisitRecords(string Description, HealthPractitioner Practitioner, Patient Patient, DateTime dateTime )
+        {
+            description = Description;
+            practitioner= Practitioner;
+            patient= Patient;
+            date = dateTime;
+        }
+        public override string ToString()
+        {
+            return $"{description} {practitioner} {patient} {date}";
+        }
     }
 }

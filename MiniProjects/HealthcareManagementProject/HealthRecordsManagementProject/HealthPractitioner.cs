@@ -4,31 +4,41 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Guid;
 
 namespace HealthRecordsManagementProject
+
 {
     public class HealthPractitioner
     {
+        private Guid id;
+        public Guid Id
+        {
+            get { return id; }
+        }
         public string firstName;
         public string lastName;
         public string emailAddress;
         public string cadre;
         public string phoneNumber;
-        public string uniqueID;
         public string homeAddress;
 
-        public HealthPractitioner(string firstName, string lastName, string emailAddress, string cadre, string phoneNumber, string uniqueID, string homeAddress)
+        public HealthPractitioner(string firstName, string lastName, string emailAddress, string cadre, string phoneNumber, string homeAddress)
         {
+            id = Guid.NewGuid();
             this.firstName = firstName;
             this.lastName = lastName;
             this.emailAddress = emailAddress;
             this.cadre = cadre;
             this.phoneNumber = phoneNumber;
-            this.uniqueID = uniqueID;
             this.homeAddress = homeAddress;
         }
 
-        
+        public override string ToString()
+        {
+            return $" {firstName} {lastName} {id}";
+        }
+
 
         //public string RetrieveRecords()
         //{
