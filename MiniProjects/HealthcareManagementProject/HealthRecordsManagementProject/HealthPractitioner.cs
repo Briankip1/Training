@@ -36,18 +36,7 @@ namespace HealthRecordsManagementProject
             return $" {firstName} {lastName} {id}";
         }
 
-        
-        //public string RetrieveRecords()
-        //{
-        //    Console.WriteLine("Which health practitioner do you want to find? ");
-        //    search = Console.ReadLine();
-        //    for ( int i = 0; i < HealthPractitioners.Count; i++)
-        //    {
-        //        if(HealthPractitioners[i].Name.Equals(search))
-        //        {
-        //            Console.WriteLine("Found it!");
-        //        }
-            
+       
                 
         //    }
         //// Can retrieve records upon authentication by Facility of Patient presence in the database

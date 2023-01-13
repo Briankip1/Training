@@ -15,6 +15,10 @@ namespace HealthRecordsManagementProject
             get;
         }
         public HealthPractitioner practitioner;
+        public string getRecordData()
+        {
+            return description + practitioner;
+        }
         public Patient patient;
         public DateTime date;
 
