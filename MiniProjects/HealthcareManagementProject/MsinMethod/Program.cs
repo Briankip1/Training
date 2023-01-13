@@ -14,6 +14,9 @@ public class MainClass
 
         HealthPractitioner physician = new HealthPractitioner("Brian", "Davids", "briandavids@gmail.com", "Physician", "+12234657656", "2756 Ranchview Ln N");
         HealthPractitioner nurse = new HealthPractitioner("Lucy", "Wayne", "waynelucy@gmail.com", "nurse", "+130984738", "264 Ave N Plymouth");
+        HealthPractitioner doctor = new HealthPractitioner("Dwayne", "Mattis", "mattis@gmail.com", "doctor", "+130984734", "296 Ave N Anoka");
+        HealthPractitioner radiologist = new HealthPractitioner("vincent", "Kompany", "kompany@gmail.com", "radiologist", "+130934899", "301 Dr Blaine");
+
         // Console.WriteLine(one.CreatePatientRecord();
 
         HealthFacility parkNicollet = new("Park Nicollet", "Health Center", "HF9574");
@@ -27,19 +30,26 @@ public class MainClass
         //VisitRecords record = new VisitRecords();
 
 
-        for (int i = 0; i < hennepinHealthcare.visits.Count; i++)
+        for (int i = 0; i < hennepinHealthcare.HealthFacilityVisits.Count; i++)
         {
-            Console.WriteLine(hennepinHealthcare.visits[i]);
+            Console.WriteLine(hennepinHealthcare.HealthFacilityVisits[i]);
         }
 
         hennepinHealthcare.Patients.Add(patient1);
         hennepinHealthcare.Patients.Add(patient2);
         hennepinHealthcare.HealthPractitioners.Add(physician);
         hennepinHealthcare.HealthPractitioners.Add(nurse);
+        hennepinHealthcare.HealthPractitioners.Add(doctor);
+        hennepinHealthcare.HealthPractitioners.Add(radiologist);
         foreach(HealthPractitioner one in hennepinHealthcare.HealthPractitioners)
         {
-            Console.WriteLine(one);
+            Console.WriteLine( one);
         }
+        hennepinHealthcare.RetrievePractitioners();
+
+        DataBank dataBank = new DataBank("AWS","AWS2543");
+        dataBank.Store();
+       
         Console.ReadLine();
     }
 }

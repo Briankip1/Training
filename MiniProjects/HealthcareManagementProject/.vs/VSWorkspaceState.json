@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HealthRecordsManagementProject",
+    "\\MsinMethod"
   ],
+  "SelectedNode": "\\MsinMethod\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -18,12 +18,12 @@ namespace HealthRecordsManagementProject
         public Patient patient;
         public DateTime date;
 
-       public VisitRecords(string Description, HealthPractitioner Practitioner, Patient Patient, DateTime dateTime )
+       public VisitRecords(string Description, HealthPractitioner Practitioner, Patient Patient)
         {
             description = Description;
-            practitioner= Practitioner;
-            patient= Patient;
-            date = dateTime;
+            practitioner = Practitioner;
+            patient = Patient;
+            date = DateTime.Now;
         }
         public override string ToString()
         {

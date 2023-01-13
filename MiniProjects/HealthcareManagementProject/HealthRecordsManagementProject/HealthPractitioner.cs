@@ -18,20 +18,17 @@ namespace HealthRecordsManagementProject
         }
         public string firstName;
         public string lastName;
-        public string emailAddress;
-        public string cadre;
-        public string phoneNumber;
-        public string homeAddress;
+        public string getData() 
+        {
+            return this.firstName + " " + this.lastName +" " + Id;
+        }
 
         public HealthPractitioner(string firstName, string lastName, string emailAddress, string cadre, string phoneNumber, string homeAddress)
         {
             id = Guid.NewGuid();
             this.firstName = firstName;
             this.lastName = lastName;
-            this.emailAddress = emailAddress;
-            this.cadre = cadre;
-            this.phoneNumber = phoneNumber;
-            this.homeAddress = homeAddress;
+           
         }
 
         public override string ToString()
@@ -39,12 +36,23 @@ namespace HealthRecordsManagementProject
             return $" {firstName} {lastName} {id}";
         }
 
-
+        
         //public string RetrieveRecords()
         //{
-        // Can retrieve records upon authentication by Facility of Patient presence in the database
-        // Can only read previous records without modification
-        // Needs to enter unique ID to retrieve the record
+        //    Console.WriteLine("Which health practitioner do you want to find? ");
+        //    search = Console.ReadLine();
+        //    for ( int i = 0; i < HealthPractitioners.Count; i++)
+        //    {
+        //        if(HealthPractitioners[i].Name.Equals(search))
+        //        {
+        //            Console.WriteLine("Found it!");
+        //        }
+            
+                
+        //    }
+        //// Can retrieve records upon authentication by Facility of Patient presence in the database
+        //// Can only read previous records without modification
+        //// Needs to enter unique ID to retrieve the record
         //}
     }
 }
