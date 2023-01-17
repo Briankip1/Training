@@ -8,10 +8,10 @@ public class MainClass
 {
     public static void Main(string[] args)
     {
-        Patient patient1 = new Patient("Eric", "Johns", "ericjohns@gmail.com", "+123455678", "UI23455", "2334 Lanor Lake");
-        Patient patient2 = new Patient("Jack", "Willis", "willisjack@gmail.com","+15698395", "UI68798", "2346 Carlson Pkwy");
-        Patient patient3 = new Patient("Hannah", "Maine", "hannah@gmail.com", "+103953646", "UI02437", "3953 Bass Lake");
-        Patient patient4 = new Patient("Robert", "Kelly", "kelly@gmail.com", "+1348593025", "UI0392", "6488 Boson Pkwy");
+        Patient patient1 = new Patient("Eric", "Johns", "ericjohns@gmail.com", "+123455678", "UI23455" );
+        Patient patient2 = new Patient("Jack", "Willis", "willisjack@gmail.com","+15698395", "UI68798");
+        Patient patient3 = new Patient("Hannah", "Maine", "hannah@gmail.com", "+103953646", "UI02437");
+        Patient patient4 = new Patient("Robert", "Kelly", "kelly@gmail.com", "+1348593025", "UI0392");
 
 
         HealthPractitioner physician = new HealthPractitioner("Brian", "Davids", "briandavids@gmail.com", "Physician", "+12234657656", "2756 Ranchview Ln N");
@@ -19,46 +19,51 @@ public class MainClass
         HealthPractitioner doctor = new HealthPractitioner("Dwayne", "Mattis", "mattis@gmail.com", "doctor", "+130984734", "296 Ave N Anoka");
         HealthPractitioner radiologist = new HealthPractitioner("vincent", "Kompany", "kompany@gmail.com", "radiologist", "+130934899", "301 Dr Blaine");
 
-        // Console.WriteLine(one.CreatePatientRecord();
 
         HealthFacility parkNicollet = new("Park Nicollet", "Health Center", "HF9574");
         parkNicollet.CreateVisitRecord(physician, patient1);
-        //VisitRecords newRecord = new VisitRecords();
-        //newHealthFacility.visits.Add(newRecord);
-
-
+       
         HealthFacility hennepinHealthcare  = new("Hennepin Healthcare", "Health Center", "HC5699");
         hennepinHealthcare.CreateVisitRecord(physician, patient1);
         //VisitRecords record = new VisitRecords();
 
+        DataBank dataBank = new DataBank("AWS","AWS2543");
 
-        for (int i = 0; i < hennepinHealthcare.HealthFacilityVisits.Count; i++)
+        dataBank.HealthPractitioners.Add(physician);
+        dataBank.HealthPractitioners.Add(nurse);
+        dataBank.HealthPractitioners.Add(doctor);
+        dataBank.HealthPractitioners.Add(radiologist);
+
+        dataBank.RetrievePractitioners();
+
+        dataBank.Patients.Add(patient1);
+        dataBank.Patients.Add(patient2);
+        dataBank.Patients.Add(patient3);
+        dataBank.Patients.Add(patient4);
+
+        dataBank.RetrievePatient();
+
+        dataBank.facilityList.Add(parkNicollet);
+        dataBank.facilityList.Add(hennepinHealthcare);
+
+        dataBank.RetrievePatient();
+
+        dataBank.visits.Add(parkNicollet.CreateVisitRecord(physician,patient1));
+        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(radiologist,patient2));
+
+
+
+
+        for (int i = 0; i < dataBank.visits.Count; i++)
         {
-            Console.WriteLine(hennepinHealthcare.HealthFacilityVisits[i]);
+            Console.WriteLine(dataBank.visits[i]);
         }
 
-        hennepinHealthcare.Patients.Add(patient1);
-        hennepinHealthcare.Patients.Add(patient2);
-        hennepinHealthcare.Patients.Add(patient3);
-        hennepinHealthcare.Patients.Add(patient4);
 
-        hennepinHealthcare.HealthPractitioners.Add(physician);
-        hennepinHealthcare.HealthPractitioners.Add(nurse);
-        hennepinHealthcare.HealthPractitioners.Add(doctor);
-        hennepinHealthcare.HealthPractitioners.Add(radiologist);
-
-        foreach(HealthPractitioner one in hennepinHealthcare.HealthPractitioners)
+        foreach (HealthPractitioner one in dataBank.HealthPractitioners)
         {
-            Console.WriteLine( one);
+            Console.WriteLine(one);
         }
-        //hennepinHealthcare.RetrievePractitioners();
-        hennepinHealthcare.RetrievePractitioners();
-        hennepinHealthcare.RetrievePatient();
-        hennepinHealthcare.RetrieveHealthFacilityVisits();
-
-
-        //DataBank dataBank = new DataBank("AWS","AWS2543");
-
 
         Console.ReadLine();
     }

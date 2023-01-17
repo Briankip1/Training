@@ -11,10 +11,11 @@ namespace HealthRecordsManagementProject
 {
     public class HealthPractitioner
     {
-        private Guid id;
+        
         public Guid Id
         {
-            get { return id; }
+            get { return Id; }
+            //init { Id = value; }
         }
         public string firstName;
         public string lastName;
@@ -25,7 +26,7 @@ namespace HealthRecordsManagementProject
 
         public HealthPractitioner(string firstName, string lastName, string emailAddress, string cadre, string phoneNumber, string homeAddress)
         {
-            id = Guid.NewGuid();
+            Id = Guid.NewGuid();
             this.firstName = firstName;
             this.lastName = lastName;
            
@@ -33,15 +34,8 @@ namespace HealthRecordsManagementProject
 
         public override string ToString()
         {
-            return $" {firstName} {lastName} {id}";
+            return $" {firstName} {lastName} {Id}";
         }
 
-       
-                
-        //    }
-        //// Can retrieve records upon authentication by Facility of Patient presence in the database
-        //// Can only read previous records without modification
-        //// Needs to enter unique ID to retrieve the record
-        //}
     }
 }
