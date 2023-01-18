@@ -8,10 +8,10 @@ public class MainClass
 {
     public static void Main(string[] args)
     {
-        Patient patient1 = new Patient("Eric", "Johns", "ericjohns@gmail.com", "+123455678", "UI23455" );
-        Patient patient2 = new Patient("Jack", "Willis", "willisjack@gmail.com","+15698395", "UI68798");
-        Patient patient3 = new Patient("Hannah", "Maine", "hannah@gmail.com", "+103953646", "UI02437");
-        Patient patient4 = new Patient("Robert", "Kelly", "kelly@gmail.com", "+1348593025", "UI0392");
+        Patient patient1 = new Patient("Eric", "Johns", "ericjohns@gmail.com", "+123455678" );
+        Patient patient2 = new Patient("Jack", "Willis", "willisjack@gmail.com","+15698395");
+        Patient patient3 = new Patient("Hannah", "Maine", "hannah@gmail.com", "+103953646");
+        Patient patient4 = new Patient("Robert", "Kelly", "kelly@gmail.com", "+1348593025");
 
 
         HealthPractitioner physician = new HealthPractitioner("Brian", "Davids", "briandavids@gmail.com", "Physician", "+12234657656", "2756 Ranchview Ln N");
@@ -21,11 +21,8 @@ public class MainClass
 
 
         HealthFacility parkNicollet = new("Park Nicollet", "Health Center", "HF9574");
-        parkNicollet.CreateVisitRecord(physician, patient1);
        
         HealthFacility hennepinHealthcare  = new("Hennepin Healthcare", "Health Center", "HC5699");
-        hennepinHealthcare.CreateVisitRecord(physician, patient1);
-        //VisitRecords record = new VisitRecords();
 
         DataBank dataBank = new DataBank("AWS","AWS2543");
 
@@ -46,10 +43,11 @@ public class MainClass
         dataBank.facilityList.Add(parkNicollet);
         dataBank.facilityList.Add(hennepinHealthcare);
 
-        dataBank.RetrievePatient();
 
-        dataBank.visits.Add(parkNicollet.CreateVisitRecord(physician,patient1));
-        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(radiologist,patient2));
+        dataBank.visits.Add(parkNicollet.CreateVisitRecord(physician.Id, patient1));
+        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(radiologist.Id, patient2));
+
+        dataBank.RetrieveVisits();
 
 
 
