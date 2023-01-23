@@ -24,10 +24,6 @@ namespace HealthRecordsManagementProject
 
         }
 
-        public void Store()
-        {
-
-        }
 
         public void RetrievePractitioners()
         {

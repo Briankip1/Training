@@ -1,0 +1,5 @@
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Exercism Assignments\SqueakyClean\obj\Debug\net7.0\SqueakyClean.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Exercism Assignments\SqueakyClean\obj\Debug\net7.0\SqueakyClean.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Exercism Assignments\SqueakyClean\obj\Debug\net7.0\SqueakyClean.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Exercism Assignments\SqueakyClean\obj\Debug\net7.0\SqueakyClean.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Exercism Assignments\SqueakyClean\obj\Debug\net7.0\SqueakyClean.csproj.CoreCompileInputs.cache
