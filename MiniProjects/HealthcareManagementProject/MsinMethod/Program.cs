@@ -8,16 +8,17 @@ public class MainClass
 {
     public static void Main(string[] args)
     {
-        Patient patient1 = new Patient("Eric", "Johns", "ericjohns@gmail.com", "+123455678" );
-        Patient patient2 = new Patient("Jack", "Willis", "willisjack@gmail.com","+15698395");
-        Patient patient3 = new Patient("Hannah", "Maine", "hannah@gmail.com", "+103953646");
-        Patient patient4 = new Patient("Robert", "Kelly", "kelly@gmail.com", "+1348593025");
+        Patient Eric = new Patient("Eric", "Johns");
+        Patient Jack = new Patient("Jack", "Willis");
+        Patient Hannah = new Patient("Hannah", "Maine");
+        Patient Robert = new Patient("Robert", "Kelly");
 
 
-        HealthPractitioner physician = new HealthPractitioner("Brian", "Davids", "briandavids@gmail.com", "Physician", "+12234657656", "2756 Ranchview Ln N");
-        HealthPractitioner nurse = new HealthPractitioner("Lucy", "Wayne", "waynelucy@gmail.com", "nurse", "+130984738", "264 Ave N Plymouth");
-        HealthPractitioner doctor = new HealthPractitioner("Dwayne", "Mattis", "mattis@gmail.com", "doctor", "+130984734", "296 Ave N Anoka");
-        HealthPractitioner radiologist = new HealthPractitioner("vincent", "Kompany", "kompany@gmail.com", "radiologist", "+130934899", "301 Dr Blaine");
+        HealthPractitioner physician = new HealthPractitioner("Brian", "Davids");
+        HealthPractitioner nurse = new HealthPractitioner("Lucy", "Wayne");
+        HealthPractitioner doctor = new HealthPractitioner("Dwayne", "Mattis");
+        HealthPractitioner radiologist = new HealthPractitioner("vincent", "Kompany");
+
 
 
         HealthFacility parkNicollet = new("Park Nicollet", "Health Center", "HF9574");
@@ -30,13 +31,14 @@ public class MainClass
         dataBank.HealthPractitioners.Add(nurse);
         dataBank.HealthPractitioners.Add(doctor);
         dataBank.HealthPractitioners.Add(radiologist);
+        
 
         dataBank.RetrievePractitioners();
 
-        dataBank.Patients.Add(patient1);
-        dataBank.Patients.Add(patient2);
-        dataBank.Patients.Add(patient3);
-        dataBank.Patients.Add(patient4);
+        dataBank.Patients.Add(Eric);
+        dataBank.Patients.Add(Jack);
+        dataBank.Patients.Add(Hannah);
+        dataBank.Patients.Add(Robert);
 
         dataBank.RetrievePatient();
 
@@ -44,17 +46,37 @@ public class MainClass
         dataBank.facilityList.Add(hennepinHealthcare);
 
 
-        dataBank.visits.Add(parkNicollet.CreateVisitRecord(physician.Id, patient1));
-        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(radiologist.Id, patient2));
+        dataBank.visits.Add(parkNicollet.CreateVisitRecord(physician.Id, Eric));
+        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(radiologist.Id, Jack));
+        dataBank.visits.Add(parkNicollet.CreateVisitRecord(nurse.Id, Hannah));
+        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(doctor.Id, Eric));
+
+        var query =
+            from patient in Patients
+            join visit in visits on patient.id equals visit.patientId into joinedList
+            //from subPatient in joinedList.DefaultIfEmpty()
+            select new
+            {
+                patient.id,
+                patient.firstName,
+                description = " " ? :string.Empty
+            };
+
+        foreach (var item in query)
+        {
+            Console.WriteLine($"{item.id} {item.firstName} {item.description} ");
+        }
+
+
+
+
 
         dataBank.RetrieveVisits();
 
 
-
-
-        for (int i = 0; i < dataBank.visits.Count; i++)
+        for (int i = 0; i < databank.visits.count; i++)
         {
-            Console.WriteLine(dataBank.visits[i]);
+            console.writeline(databank.visits[i]);
         }
 
 

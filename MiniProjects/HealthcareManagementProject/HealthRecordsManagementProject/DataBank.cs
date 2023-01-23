@@ -24,7 +24,12 @@ namespace HealthRecordsManagementProject
 
         }
 
-
+        public void Store(Patient newPatient)
+        {
+            Patients.Add(newPatient);
+            
+        }
+      
         public void RetrievePractitioners()
         {
             Console.WriteLine("Which health practitioner do you want to find? (Search with First Name) ");
@@ -66,10 +71,10 @@ namespace HealthRecordsManagementProject
             IEnumerable <VisitRecords>? findRecord = visits.Where(visitRecord => visitRecord.patientId == patient.id);
             if (findRecord != null)
             {
-               foreach (VisitRecords visitRecord in visits)
+               foreach (VisitRecords visitRecord in findRecord)
                 {
-                    Console.WriteLine(visitRecord.patientId);
-                    Console.WriteLine(visitRecord.practitionerId);
+                    Console.WriteLine(visitRecord.description);
+                    //Console.WriteLine(visitRecord.practitionerId);
                 }
             }
             else

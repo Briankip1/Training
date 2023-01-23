@@ -23,7 +23,7 @@ namespace HealthRecordsManagementProject
             return this.firstName + " " + this.lastName +" ";
         }
 
-        public HealthPractitioner(string firstName, string lastName, string emailAddress, string cadre, string phoneNumber, string homeAddress)
+        public HealthPractitioner(string firstName, string lastName)
         {
             practitionerGuid = Guid.NewGuid();
             this.firstName = firstName;

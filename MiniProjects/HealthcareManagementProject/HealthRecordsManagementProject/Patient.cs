@@ -11,21 +11,18 @@ namespace HealthRecordsManagementProject
 
         public string firstName;
         public string lastName;
-        public string emailAddress;
-        public string phoneNumber;
         public Guid id;
         public string getPatientData()
         {
-            return firstName + " " + lastName + " " + phoneNumber;
+            return firstName + " " + lastName;
         }
 
-        public Patient(string firstName, string lastName, string emailAddress, string phoneNumber)
+        public Patient(string firstName, string lastName)
         {
             this.firstName = firstName;
             this.lastName = lastName;
-            this.emailAddress = emailAddress;
-            this.phoneNumber = phoneNumber;
             id = Guid.NewGuid();
+            var newPatient = new Patient(firstName, lastName);
         }
 
         
