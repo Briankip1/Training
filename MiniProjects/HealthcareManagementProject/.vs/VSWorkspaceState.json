@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\HealthRecordsManagementProject",
-    "\\MsinMethod"
+    "\\MainMethod"
   ],
-  "SelectedNode": "\\MsinMethod\\MainMethod.csproj",
+  "SelectedNode": "\\HealthRecordsManagementProject\\HealthRecordsManagementProject.sln",
   "PreviewInSolutionExplorer": false
 }
