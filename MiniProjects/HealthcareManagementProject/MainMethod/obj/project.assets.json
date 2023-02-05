@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Poa Party Rentals\\OneDrive\\Desktop\\Training\\MiniProjects\\HealthcareManagementProject\\MsinMethod\\MainMethod.csproj",
+      "projectUniqueName": "C:\\Users\\Poa Party Rentals\\OneDrive\\Desktop\\Training\\MiniProjects\\HealthcareManagementProject\\MainMethod\\MainMethod.csproj",
       "projectName": "MainMethod",
-      "projectPath": "C:\\Users\\Poa Party Rentals\\OneDrive\\Desktop\\Training\\MiniProjects\\HealthcareManagementProject\\MsinMethod\\MainMethod.csproj",
+      "projectPath": "C:\\Users\\Poa Party Rentals\\OneDrive\\Desktop\\Training\\MiniProjects\\HealthcareManagementProject\\MainMethod\\MainMethod.csproj",
       "packagesPath": "C:\\Users\\Poa Party Rentals\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Poa Party Rentals\\OneDrive\\Desktop\\Training\\MiniProjects\\HealthcareManagementProject\\MsinMethod\\obj\\",
+      "outputPath": "C:\\Users\\Poa Party Rentals\\OneDrive\\Desktop\\Training\\MiniProjects\\HealthcareManagementProject\\MainMethod\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

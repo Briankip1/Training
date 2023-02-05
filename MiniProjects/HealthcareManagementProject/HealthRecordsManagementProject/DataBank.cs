@@ -24,10 +24,12 @@ namespace HealthRecordsManagementProject
 
         }
 
-        public void Store(Patient newPatient)
+        public void Store(Patient newPatient, HealthPractitioner newHealthPractitioner, HealthFacility newHealthFacility)
         {
             Patients.Add(newPatient);
-            
+            HealthPractitioners.Add(newHealthPractitioner);
+            visits.Add(newHealthFacility.CreateVisitRecord(newHealthPractitioner.Id, newPatient));
+            facilityList.Add(newHealthFacility);   
         }
       
         public void RetrievePractitioners()
@@ -68,13 +70,18 @@ namespace HealthRecordsManagementProject
             string? patientFirstName = Console.ReadLine();
             Patient? patient = Patients.Find(patientRecord => patientRecord.firstName == patientFirstName);
 
-            IEnumerable <VisitRecords>? findRecord = visits.Where(visitRecord => visitRecord.patientId == patient.id);
+            IEnumerable <VisitRecords>? findRecord = visits.Where(visitRecord =>
+            {
+                //Patient? patient1 = patient;
+                return visitRecord.patientId == patient.id;
+            });
             if (findRecord != null)
             {
-               foreach (VisitRecords visitRecord in findRecord)
+                Console.WriteLine($"Patient ID                              Record                    Practitioner Id");
+                foreach (VisitRecords visitRecord in visits)
                 {
-                    Console.WriteLine(visitRecord.description);
-                    //Console.WriteLine(visitRecord.practitionerId);
+                    Console.WriteLine( visitRecord.patientId + " " + visitRecord.description + " " + visitRecord.practitionerId);
+                    
                 }
             }
             else

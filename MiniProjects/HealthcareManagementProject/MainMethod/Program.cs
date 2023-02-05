@@ -2,6 +2,7 @@
 //Console.WriteLine("Hello, World!");
 using HealthRecordsManagementProject;
 using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 public class MainClass
@@ -14,10 +15,10 @@ public class MainClass
         Patient Robert = new Patient("Robert", "Kelly");
 
 
-        HealthPractitioner physician = new HealthPractitioner("Brian", "Davids");
-        HealthPractitioner nurse = new HealthPractitioner("Lucy", "Wayne");
-        HealthPractitioner doctor = new HealthPractitioner("Dwayne", "Mattis");
-        HealthPractitioner radiologist = new HealthPractitioner("vincent", "Kompany");
+        HealthPractitioner physicianBrian = new HealthPractitioner("Brian", "Davids");
+        HealthPractitioner nurseLucy = new HealthPractitioner("Lucy", "Wayne");
+        HealthPractitioner doctorDwayne = new HealthPractitioner("Dwayne", "Mattis");
+        HealthPractitioner radiologistVincent = new HealthPractitioner("Vincent", "Kompany");
 
 
 
@@ -27,63 +28,38 @@ public class MainClass
 
         DataBank dataBank = new DataBank("AWS","AWS2543");
 
-        dataBank.HealthPractitioners.Add(physician);
-        dataBank.HealthPractitioners.Add(nurse);
-        dataBank.HealthPractitioners.Add(doctor);
-        dataBank.HealthPractitioners.Add(radiologist);
-        
+        dataBank.Store(Robert, physicianBrian, parkNicollet);
+        dataBank.Store(Hannah, nurseLucy,hennepinHealthcare);
+        dataBank.Store(Jack, doctorDwayne, parkNicollet);
+        dataBank.Store(Eric, radiologistVincent, hennepinHealthcare);
 
         dataBank.RetrievePractitioners();
 
-        dataBank.Patients.Add(Eric);
-        dataBank.Patients.Add(Jack);
-        dataBank.Patients.Add(Hannah);
-        dataBank.Patients.Add(Robert);
-
         dataBank.RetrievePatient();
 
-        dataBank.facilityList.Add(parkNicollet);
-        dataBank.facilityList.Add(hennepinHealthcare);
-
-
-        dataBank.visits.Add(parkNicollet.CreateVisitRecord(physician.Id, Eric));
-        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(radiologist.Id, Jack));
-        dataBank.visits.Add(parkNicollet.CreateVisitRecord(nurse.Id, Hannah));
-        dataBank.visits.Add(hennepinHealthcare.CreateVisitRecord(doctor.Id, Eric));
+        dataBank.RetrieveVisits();
 
         var query =
-            from patient in Patients
-            join visit in visits on patient.id equals visit.patientId into joinedList
-            //from subPatient in joinedList.DefaultIfEmpty()
+            from patient in dataBank.Patients
+            join visit in dataBank.visits
+            on patient.id equals visit.patientId into joinedList
+            from jl in joinedList.DefaultIfEmpty()
             select new
             {
-                patient.id,
-                patient.firstName,
-                description = " " ? :string.Empty
+                name = patient.firstName,
+                description = " My health records",
+                visitPractitioner = jl == null ? "no practitioner available" : jl.practitionerId
             };
 
         foreach (var item in query)
         {
-            Console.WriteLine($"{item.id} {item.firstName} {item.description} ");
+            Console.WriteLine($"{item.name} {item.description} {item.visitPractitioner} ");
         }
 
-
-
-
-
-        dataBank.RetrieveVisits();
-
-
-        for (int i = 0; i < databank.visits.count; i++)
-        {
-            console.writeline(databank.visits[i]);
-        }
-
-
-        foreach (HealthPractitioner one in dataBank.HealthPractitioners)
-        {
-            Console.WriteLine(one);
-        }
+       for (int i = 0; i < dataBank.visits.Count; i++)
+       {
+            Console.WriteLine(dataBank.visits[i]);
+       }
 
         Console.ReadLine();
     }

@@ -22,7 +22,6 @@ namespace HealthRecordsManagementProject
             this.firstName = firstName;
             this.lastName = lastName;
             id = Guid.NewGuid();
-            var newPatient = new Patient(firstName, lastName);
         }
 
         
