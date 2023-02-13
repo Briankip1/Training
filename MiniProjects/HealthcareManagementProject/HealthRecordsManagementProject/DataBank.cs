@@ -15,15 +15,15 @@ namespace HealthRecordsManagementProject
         public List<HealthPractitioner> HealthPractitioners = new List<HealthPractitioner>();
         public List<Patient> Patients = new List<Patient>();
         public List<VisitRecords> visits;
-     
 
 
-        public DataBank(string name, string uniqueID) 
+
+        public DataBank(string name, string uniqueID)
         {
             this.Name = name;
             this.uniqueID = uniqueID;
-            this.visits= new List<VisitRecords>();
-            
+            this.visits = new List<VisitRecords>();
+
         }
 
         public VisitRecords Store(Patient newPatient, HealthPractitioner newHealthPractitioner, HealthFacility newHealthFacility)
@@ -34,11 +34,11 @@ namespace HealthRecordsManagementProject
             Patients.Add(newPatient);
             HealthPractitioners.Add(newHealthPractitioner);
             visits.Add(newVisit);
-            facilityList.Add(newHealthFacility);  
-            
+            facilityList.Add(newHealthFacility);
+
             return newVisit;
         }
-      
+
         public void RetrievePractitioners()
         {
             Console.WriteLine("Which health practitioner do you want to find? (Search with First Name) ");
@@ -77,7 +77,7 @@ namespace HealthRecordsManagementProject
             string? patientFirstName = Console.ReadLine();
             Patient? patient = Patients.Find(patientRecord => patientRecord.firstName == patientFirstName);
 
-            IEnumerable <VisitRecords>? findRecord = visits.Where(visitRecord =>
+            IEnumerable<VisitRecords>? findRecord = visits.Where(visitRecord =>
             {
                 //Patient? patient1 = patient;
                 return visitRecord.patientId == patient.id;
@@ -87,8 +87,8 @@ namespace HealthRecordsManagementProject
                 Console.WriteLine($"Patient ID                              Record                    Practitioner Id");
                 foreach (VisitRecords visitRecord in visits)
                 {
-                    Console.WriteLine( visitRecord.patientId + " " + visitRecord.description + " " + visitRecord.practitionerId);
-                    
+                    Console.WriteLine(visitRecord.patientId + " " + visitRecord.description + " " + visitRecord.practitionerId);
+
                 }
             }
             else
@@ -120,16 +120,16 @@ namespace HealthRecordsManagementProject
                 name = patient.firstName,
                 Description = jl.description,
                 visitPractitioner = jl.practitionerId
+
             };
 
             foreach (var item in query)
             {
-                Console.WriteLine($"{item.name} {item.Description} {item.visitPractitioner} ");
+                Console.WriteLine($"{item.name} {item.Description} {item.visitPractitioner}");
             }
 
         }
+    }
+}
         
 
-}    
-
-}

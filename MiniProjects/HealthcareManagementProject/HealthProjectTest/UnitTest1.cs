@@ -14,11 +14,13 @@ namespace HealthProjectTest
             var newStorage = new DataBank("Azure", "AZ123456");
             var testingStorage = newStorage.Store(newpatient, doctorDan, AmazingHosp);
 
-            if(testingStorage == null)
+            var newPatientVisit = new VisitRecords("description", practitionerGuid, newpatient);
+
+            if(newPatientVisit.description is string)
             {
                 throw new Exception();
             }
-            if(testingStorage.practitionerId != practitionerGuid)
+            if(newPatientVisit.practitionerId != practitionerGuid)
             {
                 throw new Exception();
             }
