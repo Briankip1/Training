@@ -39,22 +39,8 @@ public class MainClass
 
         dataBank.RetrieveVisits();
 
-        var query =
-            from patient in dataBank.Patients
-            join visit in dataBank.visits
-            on patient.id equals visit.patientId into joinedList
-            from jl in joinedList.DefaultIfEmpty()
-            select new
-            {
-                name = patient.firstName,
-                description = " My health records",
-                visitPractitioner = jl == null ? "no practitioner available" : jl.practitionerId
-            };
+        dataBank.JoinPatientsAndVisits();
 
-        foreach (var item in query)
-        {
-            Console.WriteLine($"{item.name} {item.description} {item.visitPractitioner} ");
-        }
 
        for (int i = 0; i < dataBank.visits.Count; i++)
        {

@@ -20,7 +20,7 @@ namespace HealthRecordsManagementProject
         public string lastName;
         public string getData() 
         {
-            return this.firstName + " " + this.lastName +" ";
+            return this.firstName + " " + this.lastName +" " + this.Id;
         }
 
         public HealthPractitioner(string firstName, string lastName)

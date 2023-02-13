@@ -77,7 +77,7 @@ public static class DialingCodes
     {
         if (existingDictionary.Count > 0)
         {
-            return existingDictionary?.Values.MaxBy(x => x.Length);
+            return existingDictionary ?.Values.MaxBy(x => x.Length);
         }
         return string.Empty;
     }

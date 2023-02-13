@@ -24,6 +24,8 @@ namespace HealthRecordsManagementProject
             patientId = patient.id;
             date = DateTime.Now;
         }
+
+      
         public override string ToString()
         {
             return $"{description} {practitionerId} {patientId} {date}";

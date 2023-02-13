@@ -20,11 +20,6 @@ namespace HealthRecordsManagementProject
             Name = name;
             UniqueID = uniqueID;
         }
-
-        public VisitRecords CreateVisitRecord(Guid practitionerId, Patient patient)
-        {
-            VisitRecords newVisit = new VisitRecords("Description", practitionerId, patient);
-            return newVisit;
-        }
+       
     }
 }

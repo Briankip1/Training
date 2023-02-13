@@ -14,7 +14,7 @@ namespace HealthRecordsManagementProject
         public Guid id;
         public string getPatientData()
         {
-            return firstName + " " + lastName;
+            return firstName + " " + lastName + " " + id;
         }
 
         public Patient(string firstName, string lastName)
@@ -22,6 +22,7 @@ namespace HealthRecordsManagementProject
             this.firstName = firstName;
             this.lastName = lastName;
             id = Guid.NewGuid();
+
         }
 
         
