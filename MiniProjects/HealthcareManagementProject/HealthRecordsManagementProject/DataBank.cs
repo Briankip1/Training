@@ -101,11 +101,19 @@ namespace HealthRecordsManagementProject
         {
             Console.WriteLine("Which practitioner saw the patients in the visit? ");
             string? practitionerFirstName = Console.ReadLine();
-            HealthPractitioner activePractitioner = HealthPractitioners.Find(practitionerRecord => practitionerRecord.firstName == practitionerFirstName);
+            HealthPractitioner ?activePractitioner = HealthPractitioners.Find(practitionerRecord => practitionerRecord.firstName == practitionerFirstName);
             IEnumerable<VisitRecords>? practitionerAvailable = visits.Where(recordOfVisit =>
             {
-                return recordOfVisit.practitionerId == activePractitioner.Id;
+                return recordOfVisit.practitionerId == activePractitioner?.Id;
             });
+            if(practitionerAvailable != null)
+            {
+                Console.WriteLine();
+                foreach(VisitRecords practitionerlist in practitionerAvailable)
+                {
+                    Console.WriteLine(practitionerlist.practitionerId.ToString(), practitionerlist.date);
+                }
+            }
 
         }
         public void JoinPatientsAndVisits()
@@ -118,8 +126,8 @@ namespace HealthRecordsManagementProject
             select new
             {
                 name = patient.firstName,
-                Description = jl.description,
-                visitPractitioner = jl.practitionerId
+                Description = jl?.description,
+                visitPractitioner = jl?.practitionerId
 
             };
 

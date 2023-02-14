@@ -31,21 +31,22 @@ public class MainClass
         dataBank.Store(Robert, physicianBrian, parkNicollet);
         dataBank.Store(Hannah, nurseLucy,hennepinHealthcare);
         dataBank.Store(Jack, doctorDwayne, parkNicollet);
-        dataBank.Store(Eric, radiologistVincent, hennepinHealthcare);
+        dataBank.Patients.Add(Eric);
+        //dataBank.Store(Eric, radiologistVincent, hennepinHealthcare);
 
-        dataBank.RetrievePractitioners();
+        //dataBank.RetrievePractitioners();
 
-        dataBank.RetrievePatient();
+       // dataBank.RetrievePatient();
 
-        dataBank.RetrieveVisits();
+        //dataBank.RetrieveVisits();
 
         dataBank.JoinPatientsAndVisits();
 
 
-       for (int i = 0; i < dataBank.visits.Count; i++)
-       {
-            Console.WriteLine(dataBank.visits[i]);
-       }
+       //for (int i = 0; i < dataBank.visits.Count; i++)
+       //{
+       //     Console.WriteLine(dataBank.visits[i]);
+       //}
 
         Console.ReadLine();
     }
