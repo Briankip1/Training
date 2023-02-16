@@ -28,9 +28,9 @@ public class MainClass
 
         DataBank dataBank = new DataBank("AWS","AWS2543");
 
-        dataBank.Store(Robert, physicianBrian, parkNicollet);
-        dataBank.Store(Hannah, nurseLucy,hennepinHealthcare);
-        dataBank.Store(Jack, doctorDwayne, parkNicollet);
+        dataBank.CreateAndStore(Robert, physicianBrian, parkNicollet);
+        dataBank.CreateAndStore(Hannah, nurseLucy,hennepinHealthcare);
+        dataBank.CreateAndStore(Jack, doctorDwayne, parkNicollet);
         dataBank.Patients.Add(Eric);
         //dataBank.Store(Eric, radiologistVincent, hennepinHealthcare);
 

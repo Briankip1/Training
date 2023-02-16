@@ -26,7 +26,7 @@ namespace HealthRecordsManagementProject
 
         }
 
-        public VisitRecords Store(Patient newPatient, HealthPractitioner newHealthPractitioner, HealthFacility newHealthFacility)
+        public VisitRecords CreateAndStore(Patient newPatient, HealthPractitioner newHealthPractitioner, HealthFacility newHealthFacility)
         {
             var newVisit = new VisitRecords("Description", newHealthPractitioner.Id, newPatient);
 
@@ -116,7 +116,7 @@ namespace HealthRecordsManagementProject
             }
 
         }
-        public void JoinPatientsAndVisits()
+        public List<DataBank> JoinPatientsAndVisits()
         {
             var query =
             from patient in Patients
@@ -135,6 +135,8 @@ namespace HealthRecordsManagementProject
             {
                 Console.WriteLine($"{item.name} {item.Description} {item.visitPractitioner}");
             }
+            
+            return JoinPatientsAndVisits();
 
         }
     }

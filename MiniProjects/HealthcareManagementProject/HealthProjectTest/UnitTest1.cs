@@ -1,4 +1,6 @@
 using HealthRecordsManagementProject;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HealthProjectTest
 {
@@ -12,7 +14,8 @@ namespace HealthProjectTest
             HealthPractitioner doctorDan = new HealthPractitioner("Dan", "Wanda");
             HealthFacility AmazingHosp = new HealthFacility("AmazingHosp", "HealthCenter", "HF39830");
             var newStorage = new DataBank("Azure", "AZ123456");
-            var testingStorage = newStorage.Store(newpatient, doctorDan, AmazingHosp);
+
+            var testingStorage = newStorage.CreateAndStore(newpatient, doctorDan, AmazingHosp);
 
             var newPatientVisit = new VisitRecords("description", practitionerGuid, newpatient);
 
@@ -25,15 +28,36 @@ namespace HealthProjectTest
                 throw new Exception();
             }
 
-            if(newpatient.id != testingStorage.patientId)
+            if (newpatient.id != testingStorage.patientId)
             {
                 throw new Exception();
 
             }
 
+        }
+        [Fact]
+        public void Test2()
+        {
+            var anotherDataBank = new DataBank("GCP", "GCP123456");
+            var finalList = anotherDataBank.JoinPatientsAndVisits();
 
+            Assert.Contains("Desc", "Description");
 
+           // if (finalList?.ToString().Intersect(anotherDataBank.Patients?.ToString()))
+           // {
+           //   Console.WriteLine("matched");
+          //  }
 
+            foreach(var item in anotherDataBank.Patients)
+            {
+                if (finalList.Contains(item.id)){
+                    Assert.True(true);
+                }
+            }
+            if (finalList.Contains(null))
+            {
+              throw new Exception();
+            }
         }
     }
 }
