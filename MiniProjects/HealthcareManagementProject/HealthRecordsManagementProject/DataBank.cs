@@ -116,7 +116,7 @@ namespace HealthRecordsManagementProject
             }
 
         }
-        public List<DataBank> JoinPatientsAndVisits()
+        public List<string> JoinPatientsAndVisits()
         {
             var query =
             from patient in Patients

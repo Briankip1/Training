@@ -19,10 +19,6 @@ namespace HealthProjectTest
 
             var newPatientVisit = new VisitRecords("description", practitionerGuid, newpatient);
 
-            if(newPatientVisit.description is string)
-            {
-                throw new Exception();
-            }
             if(newPatientVisit.practitionerId != practitionerGuid)
             {
                 throw new Exception();
@@ -43,14 +39,19 @@ namespace HealthProjectTest
 
             Assert.Contains("Desc", "Description");
 
-           // if (finalList?.ToString().Intersect(anotherDataBank.Patients?.ToString()))
-           // {
-           //   Console.WriteLine("matched");
-          //  }
+            //Test whether all data in the left table are available in the final list
+            // Test the matching data in the right table is avaialble in the final list
+            // If the final list contains null values when tested with unmatched values in the tables
 
-            foreach(var item in anotherDataBank.Patients)
+            List<char> commonList = finalList.Intersect(anotherDataBank.Patients);
             {
-                if (finalList.Contains(item.id)){
+                Console.WriteLine("matched");
+            }
+
+            foreach (var item in anotherDataBank.Patients)
+            {
+                if (finalList.Contains(item.firstName))
+                {
                     Assert.True(true);
                 }
             }

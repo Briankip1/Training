@@ -40,7 +40,7 @@ public class MainClass
 
         //dataBank.RetrieveVisits();
 
-        dataBank.JoinPatientsAndVisits();
+        //dataBank.JoinPatientsAndVisits();
 
 
        //for (int i = 0; i < dataBank.visits.Count; i++)
