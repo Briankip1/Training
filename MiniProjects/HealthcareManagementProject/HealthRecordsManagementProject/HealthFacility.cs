@@ -11,14 +11,14 @@ namespace HealthRecordsManagementProject
     public class HealthFacility
     {
         public string Name;
-        public string UniqueID;
+        public Guid UniqueID;
         
 
 
-        public HealthFacility(string name, string level, string uniqueID)
+        public HealthFacility(string name)
         {
             Name = name;
-            UniqueID = uniqueID;
+            UniqueID = Guid.NewGuid();
         }
        
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.WebSockets;
 //using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,7 +98,7 @@ namespace HealthRecordsManagementProject
             }
         }
 
-        public void RetrievePractitionersVisits()
+        public void JoinPractitionersAndVisits()
         {
             Console.WriteLine("Which practitioner saw the patients in the visit? ");
             string? practitionerFirstName = Console.ReadLine();
@@ -111,13 +112,20 @@ namespace HealthRecordsManagementProject
                 Console.WriteLine();
                 foreach(VisitRecords practitionerlist in practitionerAvailable)
                 {
-                    Console.WriteLine(practitionerlist.practitionerId.ToString(), practitionerlist.date);
+                   Console.WriteLine(practitionerlist.practitionerId.ToString(), practitionerlist.patientId, practitionerlist.date);
+
                 }
+            }
+            else
+            {
+                Console.WriteLine("Not found");
             }
 
         }
         public List<string> JoinPatientsAndVisits()
         {
+            List<string> finalList = new List<string>();
+
             var query =
             from patient in Patients
             join visit in visits
@@ -133,10 +141,13 @@ namespace HealthRecordsManagementProject
 
             foreach (var item in query)
             {
-                Console.WriteLine($"{item.name} {item.Description} {item.visitPractitioner}");
+                finalList.Add($"{item.name}, {item.Description},{item.visitPractitioner}");
+                
             }
+
+            return finalList;
             
-            return JoinPatientsAndVisits();
+
 
         }
     }
