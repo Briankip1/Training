@@ -44,7 +44,7 @@ namespace HealthProjectTest
             // Test the matching data in the right table is avaialble in the final list
             // If the final list contains null values when tested with unmatched values in the tables
 
-            List<char> commonList = finalList.Intersect(anotherDataBank.Patients);
+            finalList.Intersect(anotherDataBank.Patients);
             {
                 Console.WriteLine("matched");
             }
@@ -94,6 +94,8 @@ namespace HealthProjectTest
             dataBankOne.CreateAndStore(Robert, physicianBrian, parkNicollet);
             dataBankOne.CreateAndStore(Hannah, nurseLucy, hennepinHealthcare);
             dataBankOne.CreateAndStore(Jack, doctorDwayne, parkNicollet);
+            dataBankOne.CreateAndStore(Robert, radiologistVincent, hennepinHealthcare);
+         
 
 
 
