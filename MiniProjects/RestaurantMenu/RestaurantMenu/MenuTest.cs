@@ -34,7 +34,7 @@ namespace RestaurantMenu
             }
             foreach(MenuItem item in order)
             {
-                Console.WriteLine(menu.order);
+               // Console.WriteLine(menu.order);
             }
             
             Console.WriteLine(menu.Total(order));
