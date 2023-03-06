@@ -34,7 +34,7 @@ namespace RestaurantMenu
                 var resultsmenuItems2 = menuItems2.Where(itemsInTwo => itemsInTwo.name == eachItem.name);
                 
                     combinedTable.AddRange(resultsmenuItems2);
-                    menuItems2.DefaultIfEmpty();
+                    menuItems1.DefaultIfEmpty();
             }
             return combinedTable;
 
@@ -49,7 +49,7 @@ namespace RestaurantMenu
                 var resultsmenuItems1 = menuItems1.Where(itemsInOne => itemsInOne.name == itemTwo.name);
                
                 combinedTableRight.AddRange(resultsmenuItems1);
-                menuItems1.DefaultIfEmpty();
+                menuItems2.DefaultIfEmpty();
             }
             return combinedTableRight;
 

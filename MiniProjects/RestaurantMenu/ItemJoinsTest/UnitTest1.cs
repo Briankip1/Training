@@ -29,7 +29,7 @@ namespace ItemJoinsTest
             
             var actualOutput = JoinedItems.InnerJoin(left, right);
 
-            foreach(var item in expectedOutput) 
+            foreach(var item in expectedOutput)
             {
                 Assert.True(actualOutput.Contains(item));
                   
@@ -39,40 +39,37 @@ namespace ItemJoinsTest
             {
                 Assert.True(expectedOutput.Contains(itemOne));
             }
+        }
+
+        [Fact]
+        public void LeftJoinTests()
+        {
+            ItemJoins joinedLeft = new ItemJoins();
+
+            var hamburger = new MenuItem("Hamburger", 205, 5.99f);
+            var eggSalad = new MenuItem("Egg Salad", 189, 3.69f);
+            var teriyaki = new MenuItem("Teriyaki Beef", 210, 6.78f);
+            var prawn = new MenuItem("Whole Prawn Toast", 230, 6.90f);
+            var chicken = new MenuItem("Salth and Pepper Chicken", 190, 5.80f);
+            var mexicanRolls = new MenuItem("Mexican Rolls", 250, 4.54f);
+            var omlettes = new MenuItem("Tex Mex Omlettes", 230, null);
+            var frenchFries = new MenuItem("French Fries", 290, 3.80f);
+
+
+            var left = new List<MenuItem> { hamburger, eggSalad, teriyaki, prawn, chicken, mexicanRolls, omlettes, frenchFries };
+            var right = new List<MenuItem> { hamburger, eggSalad, teriyaki, prawn, chicken };
 
 
 
+            var expectedOutput = new List<MenuItem> { hamburger, eggSalad, teriyaki, prawn, chicken, null, null, null };
 
+            var actualOutput = joinedLeft.LeftJoin(left, right);
 
+            Assert.Equal(expectedOutput, actualOutput);
 
 
         }
-
            
 
-
-
-            
-
-
-        
-    
-
-            
-
-
-
-            
-
-
-
-
-
-
-
-
-
-           
-        }
     }
 }

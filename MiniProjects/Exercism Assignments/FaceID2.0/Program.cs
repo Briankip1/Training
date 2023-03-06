@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 using System;
+using System.Collections.Generic;
 
 public class FacialFeatures
 {
@@ -21,7 +22,7 @@ public class FacialFeatures
     }
     public override int GetHashCode()
     {
-        return (this.EyeColor.GetHashCode() + this.PhiltrumWidth.GetHashCode());
+        return HashCode.Combine(EyeColor, PhiltrumWidth);
     }
 }
 
@@ -40,37 +41,40 @@ public class Identity
     {
         if (obj1 == null) return false;
         var personFace = obj1 as Identity;
-        return (this.Email == personFace.Email && this.FacialFeatures == personFace.FacialFeatures);
+        return (this.Email == personFace.Email && this.FacialFeatures.Equals(personFace.FacialFeatures));
+    }
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Email, FacialFeatures);
     }
 }
 
 public class Authenticator
 {
+    HashSet<Identity> addedIdentities = new HashSet<Identity>();
     public static bool AreSameFace(FacialFeatures faceA, FacialFeatures faceB)
     {
         return faceA.Equals(faceB);
-        
     }
 
     public bool IsAdmin(Identity identity)
     {
         var theAdmin = new Identity("admin@exerc.ism", new FacialFeatures("green", 0.9m));
         return identity.Equals(theAdmin);
-       
     }
 
     public bool Register(Identity identity)
     {
-        throw new NotImplementedException("Please implement the Authenticator.Register() method");
+        return addedIdentities.Add(identity);
     }
 
     public bool IsRegistered(Identity identity)
     {
-        throw new NotImplementedException("Please implement the Authenticator.IsRegistered() method");
+        return addedIdentities.Contains(identity);
     }
 
     public static bool AreSameObject(Identity identityA, Identity identityB)
     {
-        throw new NotImplementedException("Please implement the Authenticator.AreSameObject() method");
+        return ReferenceEquals(identityA, identityB);
     }
 }
