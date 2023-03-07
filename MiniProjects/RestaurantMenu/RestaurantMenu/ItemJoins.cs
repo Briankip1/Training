@@ -25,16 +25,22 @@ namespace RestaurantMenu
 
         } 
 
-        public List<MenuItem> LeftJoin(List<MenuItem> menuItems1, List<MenuItem> menuItems2)
+        public List<List <MenuItem>>) LeftJoin(List<MenuItem> left, List<MenuItem> right)
         {
             var combinedTable = new List<MenuItem>();
 
-            foreach(var eachItem in menuItems1)
+            foreach(var leftItem in left)
             {
-                var resultsmenuItems2 = menuItems2.Where(itemsInTwo => itemsInTwo.name == eachItem.name);
-                
-                    combinedTable.AddRange(resultsmenuItems2);
-                    menuItems1.DefaultIfEmpty();
+                var matchedRightItems = right.Where(rightItems => rightItems.name == leftItem.name);
+                if(matchedRightItems.Any())
+                {
+                    combinedTable.AddRange(matchedRightItems);
+                }
+                else
+                {
+                    combinedTable.Add(leftItem);
+                }
+              
             }
             return combinedTable;
 
@@ -61,7 +67,7 @@ namespace RestaurantMenu
 
             foreach (var itemOne in menuItems1)
             {
-                var combinedData = menuItems1.FindAll(itemsInTwo => itemsInTwo.name == itemOne.name);
+                var combinedData = menuItems1.FindAll(itemsInTwo => itemsInTwo.name != itemOne.name);
                 
                     allTables.AddRange(combinedData);
             }
