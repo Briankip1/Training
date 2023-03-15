@@ -1,18 +1,19 @@
 ﻿using IdeasTracker;
 using System;
 
-public class IdeaReviewers
+public class IdeaReviewer
 {
 	public string ReviewerName;
 	public string fieldofExperience;
-	public List<IdeaReviewers> poolOfReviewers;
-	public List<IdeasPool> reviewedIdeas;
-	public List<IdeasPool> AcceptedIdeas;
-	public List<IdeasPool> rejectedIdeas;
+	public List<string>ReviewersList;
+	public List<Idea> reviewedIdeas;
+	public List<Idea> AcceptedIdeas;
+	public List<Idea> rejectedIdeas;
 	public DateTime estimatedTimeline;
 
 	public void ReviewIdea()
 	{
+
 	}
 
 	public void VoteIdea()

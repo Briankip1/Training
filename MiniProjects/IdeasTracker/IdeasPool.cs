@@ -2,21 +2,57 @@
 
 namespace IdeasTracker
 {
-    public class IdeasPool
+    public class Idea
     {
-        public List<string> category;
-        public DateTime date;
+        public string Title;
         public string Description;
         public string IdeaSponsor;
+        public DateTime date;
+        public List<string> PoolOfIdeas;
+
+        List<string> categories = new List<string>() { "ArtsandEntertainment", "Marketing", "ContentMarketing", "Design", "FoodAndHospitality", "Writing", "SportAndFitness", "Technology" };
+
+
+
+        public Idea(DateTime date, string description, string ideasponsor, string title)
+        {
+
+            this.date = DateTime.Now;
+            this.Description= description;
+            this.IdeaSponsor = ideasponsor;
+            this.Title = title;
+            
+        }
 
 
         public void IdeaEntry()
         {
+            Console.WriteLine($" Enter Idea Title: {Console.ReadLine()}");
+            Console.WriteLine($" Enter Idea Description: {Console.ReadLine()}");
+            Console.WriteLine($" Enter Idea Sponsor: {Console.ReadLine()}");
+            Console.WriteLine($" Enter Idea Date: {DateTime.Now}");
+
+  
 
         }
 
         public void CategorizeIdea()
         {
+            Console.WriteLine("Choose category based on the list below:");
+            Console.WriteLine("ArtsandEntertainment\n", "Marketing\n", "ContentMarketing\n", "Design\n", "FoodAndHospitality\n", "Writing\n", "SportAndFitness\n", "Technology");
+            var userInput = Console.ReadLine();
+
+            if(!categories.Contains(userInput))
+            {
+                Console.WriteLine("Invalid category entered");
+
+
+            }
+            else
+            {
+
+            }
+
 
         }
 
