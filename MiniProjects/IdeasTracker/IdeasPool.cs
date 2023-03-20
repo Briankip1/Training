@@ -40,7 +40,7 @@ namespace IdeasTracker
         {
             Console.WriteLine("Choose category based on the list below:");
             Console.WriteLine("ArtsandEntertainment\n", "Marketing\n", "ContentMarketing\n", "Design\n", "FoodAndHospitality\n", "Writing\n", "SportAndFitness\n", "Technology");
-            var ?userInput = Console.ReadLine();
+            string ?userInput = Console.ReadLine();
 
             if(categories.Contains(userInput))
             {

@@ -5,6 +5,16 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeasTracker", "IdeasTracker.csproj", "{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C1F5512-35B3-401D-BD89-CF6897704626}"
+	ProjectSection(SolutionItems) = preProject
+		Class1.cs = Class1.cs
+		IdeaActionTeam.cs = IdeaActionTeam.cs
+		ProductPromotionTeam.cs = ProductPromotionTeam.cs
+		ProductUsers.cs = ProductUsers.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeasTrackerTest", "IdeasTrackerTest\IdeasTrackerTest.csproj", "{D46209CA-107A-4B7C-9856-ACBEF49C410D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,10 @@ Global
 		{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46209CA-107A-4B7C-9856-ACBEF49C410D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46209CA-107A-4B7C-9856-ACBEF49C410D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46209CA-107A-4B7C-9856-ACBEF49C410D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46209CA-107A-4B7C-9856-ACBEF49C410D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
