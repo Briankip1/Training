@@ -27,31 +27,32 @@ namespace IdeasTracker
 
         public void IdeaEntry()
         {
-            Console.WriteLine($" Enter Idea Title: {Console.ReadLine()}");
-            Console.WriteLine($" Enter Idea Description: {Console.ReadLine()}");
-            Console.WriteLine($" Enter Idea Sponsor: {Console.ReadLine()}");
-            Console.WriteLine($" Enter Idea Date: {DateTime.Now}");
+            Console.WriteLine($" Enter Idea Title: {Title}");
+            Console.WriteLine($" Enter Idea Description: {Description}");
+            Console.WriteLine($" Enter Idea Sponsor: {IdeaSponsor}");
+            Console.WriteLine($" Enter Idea Date: {date}");
 
   
 
         }
 
-        public void CategorizeIdea()
+        public string CategorizeIdea()
         {
             Console.WriteLine("Choose category based on the list below:");
             Console.WriteLine("ArtsandEntertainment\n", "Marketing\n", "ContentMarketing\n", "Design\n", "FoodAndHospitality\n", "Writing\n", "SportAndFitness\n", "Technology");
-            var userInput = Console.ReadLine();
+            var ?userInput = Console.ReadLine();
 
-            if(!categories.Contains(userInput))
+            if(categories.Contains(userInput))
             {
-                Console.WriteLine("Invalid category entered");
-
-
+                IdeaEntry();
+                return $"Idea category: {userInput}";
             }
             else
             {
+                Console.WriteLine("Invalid category entered");
 
             }
+            return userInput;
 
 
         }
