@@ -1,18 +1,20 @@
 ﻿using IdeasTracker;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
 
 public class IdeaReviewer
 {
 	public string ReviewerName;
-	public string fieldofExperience;
+	public string Specialization;
 	public List<string>ReviewersList;
 	public List<Idea> reviewedIdeas;
-	public List<Idea> AcceptedIdeas;
+	public List<Idea> acceptedIdeas;
 	public List<Idea> rejectedIdeas;
 	public DateTime estimatedTimeline;
 
-	public void ReviewAndScoreIdea()
+
+	public List<string> ReviewAndScoreIdea(Idea oneIdea)
 	{
 		int totalScore = 0;
 
@@ -34,29 +36,17 @@ public class IdeaReviewer
 
         if (totalScore >= 12)
         {
-			AcceptedIdeas.Add();
+			acceptedIdeas.Add(oneIdea);
 
         }
+		else
+		{
+			rejectedIdeas.Add(oneIdea);
+		}
+
+	return 	reviewedIdeas.Add(oneIdea);
 
 
-
-
-
-
-
-
-    }
-
-	public void VoteIdea()
-	{
-		int totalScore = 0;
-
-        totalScore = timescore + cost + potentialImpact + monetaryImpact;
-
-        if (totalScore > 12)
-        {
-
-        }
     }
 
 	public void ProvideFeedBack()
