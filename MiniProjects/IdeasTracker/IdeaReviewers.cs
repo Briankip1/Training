@@ -3,18 +3,36 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
 
-public class IdeaReviewer
+public class IdeaReviewers
 {
-	public string ReviewerName;
-	public string Specialization;
-	public List<string>ReviewersList;
-	public List<Idea> reviewedIdeas;
-	public List<Idea> acceptedIdeas;
-	public List<Idea> rejectedIdeas;
-	public DateTime estimatedTimeline;
+	
+	public string areaOfExpertise;
+	public bool availability;
+	public int yearsOfExperience;
+
+	public IdeaReviewers(string areaOfExpertise, bool availability, int yearsOfExperience) 
+	{
+		this.areaOfExpertise = areaOfExpertise;
+		this.availability = availability;
+		this.yearsOfExperience= yearsOfExperience;
+		
+	}
 
 
-	public List<string> ReviewAndScoreIdea(Idea oneIdea)
+	public void AssignideasForReview(string reviewerName)
+	{
+		if(IdeaPool category.Contains(areaOfExpertise))
+		{
+			foreach(string idea in IdeaPool.enteredIdeas)
+			{
+				Console.WriteLine(idea + " " + reviewerName);
+
+			}
+		}
+
+	}
+
+	public List<IdeaPool> ReviewAndScoreIdea(IdeaPool oneIdea)
 	{
 		int totalScore = 0;
 
@@ -36,15 +54,16 @@ public class IdeaReviewer
 
         if (totalScore >= 12)
         {
-			acceptedIdeas.Add(oneIdea);
+			IdeaPool acceptedIdeas.Add(oneIdea);
 
         }
 		else
 		{
-			rejectedIdeas.Add(oneIdea);
+			IdeaPool rejectedIdeas.Add(oneIdea);
 		}
 
-	return 	reviewedIdeas.Add(oneIdea);
+		IdeaPool reviewedIdeas.Add(oneIdea);
+		return reviewedIdeas;
 
 
     }

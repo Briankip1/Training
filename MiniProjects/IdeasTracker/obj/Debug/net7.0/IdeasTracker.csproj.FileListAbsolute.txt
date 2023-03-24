@@ -1,0 +1,5 @@
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\obj\Debug\net7.0\IdeasTracker.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\obj\Debug\net7.0\IdeasTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\obj\Debug\net7.0\IdeasTracker.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\obj\Debug\net7.0\IdeasTracker.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\obj\Debug\net7.0\IdeasTracker.csproj.CoreCompileInputs.cache

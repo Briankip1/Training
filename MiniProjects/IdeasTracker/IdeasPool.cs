@@ -2,50 +2,47 @@
 
 namespace IdeasTracker
 {
-    public class Idea
+    public class IdeaPool
     {
-        public string Title;
-        public string Description;
-        public string IdeaSponsor;
-        public DateTime date;
-        public List<string> PoolOfIdeas;
 
-        List<string> categories = new List<string>() { "ArtsandEntertainment", "Marketing", "ContentMarketing", "Design", "FoodAndHospitality", "Writing", "SportAndFitness", "Technology" };
+        public DateTime timeframe;
+        public string priority;
+        public List<string> enteredIdeas = new List<string>();
+        public List<string> reviewedIdeas;
+        public List<string> acceptedIdeas;
+        public List<string> rejectedIdeas;
+        List<string> category = new List<string>() { "ArtsandEntertainment", "Marketing", "ContentMarketing", "Design", "FoodAndHospitality", "Writing", "SportAndFitness", "Technology" };
 
 
 
-        public Idea(DateTime date, string description, string ideasponsor, string title)
+        public IdeaPool(DateTime date, string priority)
         {
 
-            this.date = DateTime.Now;
-            this.Description= description;
-            this.IdeaSponsor = ideasponsor;
-            this.Title = title;
-            
+            this.timeframe = DateTime.Date.AddDays;
+            this.priority = priority;    
         }
 
 
-        public void IdeaEntry()
+        public void IdeaEntry(string title, string description, string ideaSponsor, DateTime date)
         {
-            Console.WriteLine($" Enter Idea Title: {Title}");
-            Console.WriteLine($" Enter Idea Description: {Description}");
-            Console.WriteLine($" Enter Idea Sponsor: {IdeaSponsor}");
+            Console.WriteLine($" Enter Idea Title: {title}");
+            Console.WriteLine($" Enter Idea Description: {description}");
+            Console.WriteLine($" Enter Idea Sponsor: {ideaSponsor}");
             Console.WriteLine($" Enter Idea Date: {date}");
 
-  
+            enteredIdeas.AddRange(title,description,ideaSponsor,date );
 
         }
 
-        public string CategorizeIdea()
+        public string CategorizeEnteredIdea()
         {
             Console.WriteLine("Choose category based on the list below:");
             Console.WriteLine("ArtsandEntertainment\n", "Marketing\n", "ContentMarketing\n", "Design\n", "FoodAndHospitality\n", "Writing\n", "SportAndFitness\n", "Technology");
             string ?userInput = Console.ReadLine();
 
-            if(categories.Contains(userInput))
+            if(category.Contains(userInput))
             {
-                IdeaEntry();
-                return $"Idea category: {userInput}";
+                enteredIdeas.Add(userInput);
             }
             else
             {
@@ -56,9 +53,6 @@ namespace IdeasTracker
 
 
         }
-
-
-
 
     }
 
