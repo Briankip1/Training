@@ -32,41 +32,7 @@ public class IdeaReviewers
 
 	}
 
-	public List<IdeaPool> ReviewAndScoreIdea(IdeaPool oneIdea)
-	{
-		int totalScore = 0;
-
-		Console.WriteLine("Evaluation Matrix - Points(1- 5)");
-
-		Console.WriteLine("Enter Time Score: ");
-		int timescore = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Enter Cost Score: ");
-        int cost = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Enter Score for Potential Impact: ");
-        int potentialImpact = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Enter Monetary Impact Score: ");
-        int monetaryImpact = Convert.ToInt32(Console.ReadLine());
-
-        totalScore = timescore + cost + potentialImpact + monetaryImpact;
-
-        if (totalScore >= 12)
-        {
-			IdeaPool acceptedIdeas.Add(oneIdea);
-
-        }
-		else
-		{
-			IdeaPool rejectedIdeas.Add(oneIdea);
-		}
-
-		IdeaPool reviewedIdeas.Add(oneIdea);
-		return reviewedIdeas;
-
-
-    }
+	
 
 	public void ProvideFeedBack()
 	{

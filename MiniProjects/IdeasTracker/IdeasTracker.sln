@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeasTracker", "IdeasTracker.csproj", "{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdeasTracker", "IdeasTracker.csproj", "{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C1F5512-35B3-401D-BD89-CF6897704626}"
 	ProjectSection(SolutionItems) = preProject
 		Class1.cs = Class1.cs
+		Idea.cs = Idea.cs
 		IdeaActionTeam.cs = IdeaActionTeam.cs
+		IndividualReviewer.cs = IndividualReviewer.cs
 		ProductPromotionTeam.cs = ProductPromotionTeam.cs
 		ProductUsers.cs = ProductUsers.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeasTrackerTest", "IdeasTrackerTest\IdeasTrackerTest.csproj", "{D46209CA-107A-4B7C-9856-ACBEF49C410D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdeasTrackerTest", "IdeasTrackerTest\IdeasTrackerTest.csproj", "{D46209CA-107A-4B7C-9856-ACBEF49C410D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F} = {B3B9F3A1-39E3-42A9-9FFF-CEAA11E6B30F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
