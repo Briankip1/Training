@@ -6,9 +6,14 @@ public interface IAddIdeas
 {
 	void AddIdea();
 }
-
-public class Idea : IAddIdeas
+public interface IUniqueId
 {
+	Guid id { get; }
+}
+
+public class Idea : IAddIdeas, IUniqueId
+{
+	public Guid id{ get; set; }
 	public string title;
 	public string description;
 	public string sponsor;
@@ -36,7 +41,7 @@ public class Idea : IAddIdeas
 		Console.WriteLine("Enter the date:");
 		date = DateTime.Now;
 
-		return $"{title} {description} {sponsor} {date}"
+		return $" {id} {title} {description} {sponsor} {date}";
 	}
 
 	public string CheckAndAddIdeaCategory()

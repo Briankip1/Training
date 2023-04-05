@@ -1,20 +1,27 @@
-using IdeasTracker;
-using Xunit.Sdk;
 
-namespace IdeasTrackerTest
-{
-    public class UnitTest1
-    {
-        [Fact]
-        public void IdeaTest()
-        {
-            var newIdea = new Idea("time machine","reverse the past", "brian", DateTime.Now);
+//namespace IdeasTrackerTest
+//{
+//    public class IdeaTest
+//    {
+//        [Fact]
+//        public void IdeaEntryTest()
+//        {
+//            //r newIdea = new Idea("time machine","reverse the past", "brian", DateTime.Now);
 
-            IdeaPool enteredIdeas.Add(newIdea);
+//            //eaPool enteredIdeas.Add(newIdea);
+
+//        }
+
+//        [Fact]
+//        public void CheckAndAddIdeaCategory_categoryavailable_ReturnString()
+//        {
+//           //ar newIdea = new Idea("time machine", "reverse the past", "brian", DateTime.Now);
+//            //r result = newIdea.CheckAndAddIdeaCategory();
+//            //r expected = "time machine", "reverse the past", "brian", DateTime.Now : "ArtsAndEntertainment";
+
+//            //sert.Equal(expected, result);
 
 
-
-
-        }
-    }
-}
+//        }
+//    }
+//}

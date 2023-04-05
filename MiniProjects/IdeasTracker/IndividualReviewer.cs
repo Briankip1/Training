@@ -1,15 +1,15 @@
-﻿using System;
+﻿using IdeasTracker;
+using System;
 
-public class IndividualReviewer
+public class IndividualReviewer: IAddIdeas, IUniqueId
 {
-	public int id;
+	public Guid id { get; set; }
 	public string name;
 	public string areaOfExpertise;
 	public bool availability;
 
-	public IndividualReviewer(int id, string name, string areaOfExpertise, bool availability)
+	public IndividualReviewer(string name, string areaOfExpertise, bool availability)
 	{
-		this.id = id;
 		this.name = name;
 		this.areaOfExpertise = areaOfExpertise;
 		this.availability = availability;
@@ -37,21 +37,11 @@ public class IndividualReviewer
         return totalScore;
     }
 
-    public List<Idea> ClassifyIdeas(Idea idea)
+    public void AddIdea()
     {
-        if (ReviewAndScoreIdea() >= 12)
-        {
-            Ideaspool acceptedIdeas.Add(idea);
-            return acceptedIdeas;
-        }
-        else
-        {
-            IdeasPool rejectedIdeas.Add(idea);
-            return rejectedIdeas
-        }
-
-        IdeasPool reviewedIdeas.Add(idea);
-        return reviewedIdeas;
+        IdeasPool.ideasScores.Add(ReviewAndScoreIdea());
 
     }
+
+    
 }

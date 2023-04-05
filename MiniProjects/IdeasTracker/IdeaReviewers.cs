@@ -9,6 +9,17 @@ public class IdeaReviewers
 	public string areaOfExpertise;
 	public bool availability;
 	public int yearsOfExperience;
+	public Dictionary<string, string> matchingSpecializations = new Dictionary<string, string>()
+	{
+		{"ArtsandEntertainment", "artist" },
+		{ "Marketing", "marketing professional"},
+		{ "ContentMarketing", "content marketer"},
+		{ "Design", "designer"},
+		{ "FoodAndHospitality", "restaurant manager"},
+		{"Writing", "author"},
+		{"SportAndFitness", "fitness instructor"},
+		{"Technology", "software engineer" }
+	};
 
 	public IdeaReviewers(string areaOfExpertise, bool availability, int yearsOfExperience) 
 	{
@@ -19,21 +30,18 @@ public class IdeaReviewers
 	}
 
 
-	public void AssignideasForReview(string reviewerName)
+	public string AssignideasForReview()
 	{
-		if(IdeaPool category.Contains(areaOfExpertise))
+		if(Idea.enteredIdeas.Contains(matchingSpecializations.Keys))
 		{
-			foreach(string idea in IdeaPool.enteredIdeas)
+			foreach(string idea in Idea.enteredIdeas)
 			{
-				Console.WriteLine(idea + " " + reviewerName);
-
-			}
-			
+				return $"{guid} = {matchingSpecializations.Values}";
+			}			
 		}
+		return null;
 
 	}
-
-	
 
 	public void ProvideFeedBack()
 	{
