@@ -1,7 +1,7 @@
 ﻿using IdeasTracker;
 using System;
 
-public class IndividualReviewer: IAddIdeas, IUniqueId
+public class IndividualReviewer: IUniqueId
 {
 	public Guid id { get; set; }
 	public string name;
