@@ -1,0 +1,12 @@
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\bin\Debug\net7.0\Domain.Tests.deps.json
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\bin\Debug\net7.0\Domain.Tests.dll
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\bin\Debug\net7.0\Domain.Tests.pdb
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.dll
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\refint\Domain.Tests.dll
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\Domain.Tests.pdb
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\Domain.Tests\obj\Debug\net7.0\ref\Domain.Tests.dll

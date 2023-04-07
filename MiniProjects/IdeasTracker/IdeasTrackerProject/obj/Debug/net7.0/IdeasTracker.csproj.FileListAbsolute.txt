@@ -1,0 +1,12 @@
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.csproj.AssemblyReference.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.AssemblyInfoInputs.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.AssemblyInfo.cs
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.csproj.CoreCompileInputs.cache
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\bin\Debug\net7.0\IdeasTracker.deps.json
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\bin\Debug\net7.0\IdeasTracker.dll
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\bin\Debug\net7.0\IdeasTracker.pdb
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.dll
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\refint\IdeasTracker.dll
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\IdeasTracker.pdb
+C:\Users\Poa Party Rentals\OneDrive\Desktop\Training\MiniProjects\IdeasTracker\IdeasTrackerProject\obj\Debug\net7.0\ref\IdeasTracker.dll
