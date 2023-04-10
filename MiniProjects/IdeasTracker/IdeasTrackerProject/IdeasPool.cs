@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -27,37 +28,23 @@ namespace IdeasTracker
             this.priority = priority;    
         }
 
-        public double AverageIdeaScore()
-        {
-            int total = 0;
-            double average = 0;
-            foreach( int score in ideasScores)
-            {
-                total += score;
-
-                average = total/ ideasScores.Count;
-            }
-            return average;
-        }
-
-
-        public string IdeaEntry(Idea idea)
+        public Idea IdeaEntry(Idea idea)
         {
             Console.WriteLine("Enter title name:");
-            idea.title = Console.ReadLine();
+            idea.title? = Console.ReadLine();
             Console.WriteLine("Enter idea description:");
-            idea.description = Console.ReadLine();
+            idea.description? = Console.ReadLine();
             Console.WriteLine("Enter idea sponsor");
-            idea.sponsor = Console.ReadLine();
+            idea.sponsor? = Console.ReadLine();
             Console.WriteLine("Enter the date:");
             idea.date = DateTime.Now;
+            return idea;
 
-            return $" {idea.title} {idea.description} {idea.sponsor} {idea.date}";
+            //Idea newIdea = $" {idea.title} {idea.description} {idea.sponsor} {idea.date}";
         }
-
-        public string CheckAndAddIdeaCategory()
+        public (Idea, string) CheckAndAddIdeaCategory(Idea someIdea)
         {
-            var someIdea = new Idea();
+            
             Console.WriteLine("Choose category based on the list below:");
             Console.WriteLine(
             "ArtsandEntertainment\n",
@@ -72,12 +59,30 @@ namespace IdeasTracker
             string? userInput = Console.ReadLine();
             if (category.Contains(userInput))
             {
-                return $"{IdeaEntry(someIdea)} : {userInput}";
+                return (IdeaEntry(someIdea), userInput);
+       
             }
             else
             {
-                return $"{IdeaEntry(someIdea)} : Other";
+                return (IdeaEntry(someIdea), "Other");
             }
+        }
+
+        public void AddNewlyIdeatoEnteredIdeas()
+        {
+            enteredIdeas.Add(CheckAndAddIdeaCategory(new Idea()));
+        }
+        public double AverageIdeaScore()
+        {
+            int total = 0;
+            double average = 0;
+            foreach( int score in ideasScores)
+            {
+                total += score;
+
+                average = total/ ideasScores.Count;
+            }
+            return average;
         }
 
         public List<Idea> AddIdea(Idea idea)

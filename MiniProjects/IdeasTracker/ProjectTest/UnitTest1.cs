@@ -12,18 +12,19 @@ namespace ProjectTest
         {
            var individualReviewer = new IndividualReviewer("john", "engineering", true);
             var result = individualReviewer.ReviewAndScoreIdea();
-            result.Should().Be(20);
-            
+            result.Should().Be(20);          
         }
 
         [Fact]
         public void Add_the_result_of_ReviewAndScoreIdea_to_List_of_IdeaScores()
         {
-            var individualReviewer = new IndividualReviewer("john", "engineering", true);
-            individualReviewer.AddScore(new IdeasPool(DateTime.Now, "high"));
-
-
+            var pool = new IdeasPool(DateTime.Now, "low");
+            pool.enteredIdeas.Should().HaveCount(1);
         }
+
+        //[Fact]
+
+       // public void 
     }
 
 }

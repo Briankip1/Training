@@ -15,7 +15,7 @@ public class IndividualReviewer: IUniqueId
 		this.availability = availability;
 	}
 
-    public int ReviewAndScoreIdea()
+    public int ReviewAndScoreIdea(Idea idea)
     {
         int totalScore = 0;
 
@@ -39,7 +39,7 @@ public class IndividualReviewer: IUniqueId
 
     public void AddScore(IdeasPool pool)
     {
-        pool.ideasScores.Add(ReviewAndScoreIdea());
+        pool.ideasScores.Add(ReviewAndScoreIdea(new Idea()));
 
     }
 
