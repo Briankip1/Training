@@ -43,18 +43,6 @@ public class ReviewersGroup
 		return null;
 	}
 
-	//public string AssignideasForReview(IdeasPool pool)
-	//{
-	//	if(pool.enteredIdeas.Contains(matchingSpecializations.Keys))
-	//	{
-	//		foreach(Idea idea in pool.enteredIdeas)
-	//		{
-	//			return $"{idea}{matchingSpecializations.Values}";
-	//		}			
-	//	}
-	//	return null;
-	//}
-
 	public void ProvideFeedBack()
 	{
 

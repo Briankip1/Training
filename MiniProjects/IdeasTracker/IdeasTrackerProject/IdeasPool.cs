@@ -5,17 +5,18 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace IdeasTracker
 {
-    public interface IIdeaentry
+    interface IIdeaentry
     {
-        Idea IdeaEntry(Idea)
+        Idea IdeaEntry(Idea idea);
+        void IdeaEntryQuiz();
     }
     public class IdeasPool : IUniqueId, IIdeaentry
     {
         public Guid id { get; set; }
         public DateTime timeframe;
         public string priority;
-        public List<int>ideasScores = new List<int>();
-        public List<Idea> enteredIdeas = new List<Idea>();
+        public List<int> ideasScores = new List<int>();
+        public List<Tuple<Idea,string>>enteredIdeas = new List<Tuple<Idea,string>>();
         public List<Idea> reviewedIdeas = new List<Idea>();
         public List<Idea> acceptedIdeas = new List<Idea>();
         public List<Idea> rejectedIdeas = new List<Idea>();
@@ -26,26 +27,29 @@ namespace IdeasTracker
         {
 
             this.timeframe = DateTime.Now;
-            this.priority = priority;    
+            this.priority = priority;
         }
 
         public Idea IdeaEntry(Idea idea)
         {
-            Console.WriteLine("Enter title name:");
-            idea.title? = Console.ReadLine();
-            Console.WriteLine("Enter idea description:");
-            idea.description? = Console.ReadLine();
-            Console.WriteLine("Enter idea sponsor");
-            idea.sponsor? = Console.ReadLine();
-            Console.WriteLine("Enter the date:");
+            idea.title = Console.ReadLine();
+            idea.description = Console.ReadLine();
+            idea.sponsor = Console.ReadLine();
             idea.date = DateTime.Now;
             return idea;
-
-            //Idea newIdea = $" {idea.title} {idea.description} {idea.sponsor} {idea.date}";
         }
+
+        public void IdeaEntryQuiz()
+        {
+            Console.WriteLine("Enter title name:");
+            Console.WriteLine("Enter idea description:");
+            Console.WriteLine("Enter idea sponsor");
+            Console.WriteLine("Enter the date:");
+        }
+
         public (Idea, string) CheckAndAddIdeaCategory(Idea someIdea)
         {
-            
+
             Console.WriteLine("Choose category based on the list below:");
             Console.WriteLine(
             "ArtsandEntertainment\n",
@@ -61,7 +65,7 @@ namespace IdeasTracker
             if (category.Contains(userInput))
             {
                 return (IdeaEntry(someIdea), userInput);
-       
+
             }
             else
             {
@@ -69,31 +73,31 @@ namespace IdeasTracker
             }
         }
 
-        public void AddNewlyIdeatoEnteredIdeas()
+        public void AddNewIdeatoEnteredIdeas()
         {
             enteredIdeas.Add(CheckAndAddIdeaCategory(new Idea()));
         }
-        public double AverageIdeaScore()
-        {
-            int total = 0;
-            double average = 0;
-            foreach( int score in ideasScores)
-            {
-                total += score;
 
-                average = total/ ideasScores.Count;
+        public double AverageIdeaScore(Idea idea)
+        {
+
+            foreach (int score in ideasScores)
+            {
+                idea.cumulativeIdeaScore += score;
+
+                idea.cumulativeIdeaAverage = idea.cumulativeIdeaScore / ideasScores.Count;
             }
-            return average;
+            return idea.cumulativeIdeaAverage;
         }
 
-        public List<Idea> AddIdea(Idea idea)
+        public List<Idea> ClassifyIdea(Idea idea)
         {
-            if (AverageIdeaScore() >= 12)
+            if (AverageIdeaScore(new Idea()) >= 12)
             {
                 acceptedIdeas.Add(idea);
                 return acceptedIdeas;
             }
-            if(AverageIdeaScore() < 12)
+            if (AverageIdeaScore(new Idea()) < 12)
             {
                 rejectedIdeas.Add(idea);
                 return rejectedIdeas;
@@ -103,7 +107,6 @@ namespace IdeasTracker
             return reviewedIdeas;
         }
 
+        
     }
-
-
 }

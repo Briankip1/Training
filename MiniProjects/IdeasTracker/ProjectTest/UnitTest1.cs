@@ -11,8 +11,8 @@ namespace ProjectTest
         public void Input_from_the_reviewer_should_add_to_not_more_than_20()
         {
            var individualReviewer = new IndividualReviewer("john", "engineering", true);
-            var result = individualReviewer.ReviewAndScoreIdea();
-            result.Should().Be(20);          
+            var result = individualReviewer.ReviewAndScoreIdea(new Idea());
+            result.Should().BeLessThan(20);          
         }
 
         [Fact]
