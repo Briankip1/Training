@@ -5,8 +5,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace IdeasTracker
 {
-
-    public class IdeasPool : IUniqueId
+    public interface IIdeaentry
+    {
+        Idea IdeaEntry(Idea)
+    }
+    public class IdeasPool : IUniqueId, IIdeaentry
     {
         public Guid id { get; set; }
         public DateTime timeframe;
