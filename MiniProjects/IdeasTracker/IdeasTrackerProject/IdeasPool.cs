@@ -16,7 +16,7 @@ namespace IdeasTracker
         public DateTime timeframe;
         public string priority;
         public List<int> ideasScores = new List<int>();
-        public List<Tuple<Idea,string>>enteredIdeas = new List<Tuple<Idea,string>>();
+        public List<Tuple<Idea,string>>enteredIdeas = new();
         public List<Idea> reviewedIdeas = new List<Idea>();
         public List<Idea> acceptedIdeas = new List<Idea>();
         public List<Idea> rejectedIdeas = new List<Idea>();
@@ -30,6 +30,13 @@ namespace IdeasTracker
             this.priority = priority;
         }
 
+        public void IdeaEntryQuiz()
+        {
+            Console.WriteLine("Enter title name:");
+            Console.WriteLine("Enter idea description:");
+            Console.WriteLine("Enter idea sponsor");
+            Console.WriteLine("Enter the date:");
+        }
         public Idea IdeaEntry(Idea idea)
         {
             idea.title = Console.ReadLine();
@@ -37,14 +44,6 @@ namespace IdeasTracker
             idea.sponsor = Console.ReadLine();
             idea.date = DateTime.Now;
             return idea;
-        }
-
-        public void IdeaEntryQuiz()
-        {
-            Console.WriteLine("Enter title name:");
-            Console.WriteLine("Enter idea description:");
-            Console.WriteLine("Enter idea sponsor");
-            Console.WriteLine("Enter the date:");
         }
 
         public (Idea, string) CheckAndAddIdeaCategory(Idea someIdea)
@@ -64,7 +63,8 @@ namespace IdeasTracker
             string? userInput = Console.ReadLine();
             if (category.Contains(userInput))
             {
-                return (IdeaEntry(someIdea), userInput);
+                var combinedIdea = new Tuple<Idea, string>(someIdea, userInput);
+                return combinedIdea;
 
             }
             else
@@ -92,12 +92,12 @@ namespace IdeasTracker
 
         public List<Idea> ClassifyIdea(Idea idea)
         {
-            if (AverageIdeaScore(new Idea()) >= 12)
+            if (AverageIdeaScore(idea) >= 12)
             {
                 acceptedIdeas.Add(idea);
                 return acceptedIdeas;
             }
-            if (AverageIdeaScore(new Idea()) < 12)
+            if (AverageIdeaScore(idea) < 12)
             {
                 rejectedIdeas.Add(idea);
                 return rejectedIdeas;
