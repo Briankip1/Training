@@ -22,15 +22,6 @@ namespace ProjectTest
             pool.enteredIdeas.Should().HaveCount(1);
         }
 
-        [Fact]
-
-        public void Outputs_the_Heading_of_the_idea_to_be_entered()
-        {
-            var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
-            string titleTest = "Enter title name:";
-            var result = freshPool.IdeaEntryQuiz();
-            result.Should().Be(titleTest);
-        }
 
         [Fact]
         public void Allows_user_input_of_the_idea_attributes()
@@ -49,6 +40,39 @@ namespace ProjectTest
             var userInput = "religion";
             Assert("Other");
             
+        }
+
+        [Fact]
+        public void Returns_the_average_of_score_of_an_idea_as_inputed_by_indvidual_reviewers()
+        {
+            var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
+            var freshIdea = new Idea();
+            freshIdea.ideasScores = new List<int>() {8,12};
+            var expectedOutput = (freshIdea.ideasScores[0] + freshIdea.ideasScores[1])/freshIdea.ideasScores.Count;
+            var result = freshPool.AverageIdeaScore(new Idea());
+            if(expectedOutput == result)
+            {
+                Console.WriteLine("The function works correctly");
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        [Fact]
+        public void Categorize_Ideas_Based_on_the_scores_received()
+        {
+            var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
+
+            var result = freshPool.ClassifyIdea(new Idea());
+            if(result == null || result.Count < 0)
+            {
+                throw new ArgumentNullException();
+            }
+
+
+
 
 
         }

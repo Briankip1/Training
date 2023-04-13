@@ -5,22 +5,25 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace IdeasTracker
 {
-    interface IIdeaentry
+  
+    public interface IConsole
     {
         Idea IdeaEntry(Idea idea);
-        void IdeaEntryQuiz();
+        void WriteLine(string text);
+        string ReadLine();
+
     }
-    public class IdeasPool : IUniqueId, IIdeaentry
+    public class IdeasPool : IUniqueId, IConsole
     {
         public Guid id { get; set; }
         public DateTime timeframe;
         public string priority;
-        public List<int> ideasScores = new List<int>();
         public List<Tuple<Idea,string>>enteredIdeas = new();
         public List<Idea> reviewedIdeas = new List<Idea>();
         public List<Idea> acceptedIdeas = new List<Idea>();
         public List<Idea> rejectedIdeas = new List<Idea>();
-        List<string> category = new List<string>() { "ArtsandEntertainment", "Marketing", "ContentMarketing", "Design", "FoodAndHospitality", "Writing", "SportAndFitness", "Technology" };
+        public List<string> category = new List<string>() { "ArtsandEntertainment", "Marketing", "ContentMarketing", "Design", "FoodAndHospitality", "Writing", "SportAndFitness", "Technology" };
+
 
 
         public IdeasPool(DateTime date, string priority)
@@ -30,19 +33,18 @@ namespace IdeasTracker
             this.priority = priority;
         }
 
-        public void IdeaEntryQuiz()
+        public Idea IdeaEntry(Idea idea, IConsole console)
         {
-            Console.WriteLine("Enter title name:");
-            Console.WriteLine("Enter idea description:");
-            Console.WriteLine("Enter idea sponsor");
-            Console.WriteLine("Enter the date:");
-        }
-        public Idea IdeaEntry(Idea idea)
-        {
-            idea.title = Console.ReadLine();
-            idea.description = Console.ReadLine();
-            idea.sponsor = Console.ReadLine();
+            console.WriteLine("Enter title name:");
+            idea.title = console.ReadLine();
+            console.WriteLine("Enter idea description:");
+            idea.description = console.ReadLine();
+            console.WriteLine("Enter idea sponsor");
+            idea.sponsor = console.ReadLine();
+            console.WriteLine("Enter the date:");
             idea.date = DateTime.Now;
+            console.WriteLine("Enter the category: ");
+            idea.enteredCategory = console.ReadLine(); 
             return idea;
         }
 
@@ -73,19 +75,19 @@ namespace IdeasTracker
             }
         }
 
-        public void AddNewIdeatoEnteredIdeas()
+        public void AddNewIdeatoEnteredIdeas(Idea idea)
         {
-            enteredIdeas.Add(CheckAndAddIdeaCategory(new Idea()));
+            enteredIdeas.Add(CheckAndAddIdeaCategory(idea));
         }
 
         public double AverageIdeaScore(Idea idea)
         {
 
-            foreach (int score in ideasScores)
+            foreach (int eachScore in idea.ideasScores)
             {
-                idea.cumulativeIdeaScore += score;
+                idea.cumulativeIdeaScore += eachScore;
 
-                idea.cumulativeIdeaAverage = idea.cumulativeIdeaScore / ideasScores.Count;
+                idea.cumulativeIdeaAverage = idea.cumulativeIdeaScore / idea.ideasScores.Count;
             }
             return idea.cumulativeIdeaAverage;
         }

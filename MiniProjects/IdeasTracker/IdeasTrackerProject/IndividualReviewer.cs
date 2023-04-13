@@ -38,9 +38,9 @@ public class IndividualReviewer: IUniqueId
         return idea.totalScore;
     }
 
-    public void AddScore(IdeasPool pool)
+    public void AddScore(Idea score)
     {
-        pool.ideasScores.Add(ReviewAndScoreIdea(new Idea()));
+        score.ideasScores.Add(ReviewAndScoreIdea(Idea idea);
 
     }
 

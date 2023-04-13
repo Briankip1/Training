@@ -23,9 +23,8 @@ public class Idea : IUniqueId
 	public int monetaryImpact = 0;
 	public int cumulativeIdeaScore = 0;
 	public double cumulativeIdeaAverage = 0;
-
-
-
+	public string enteredCategory;
+    public List<int> ideasScores = new List<int>();
     public Idea()
 	{
 		
