@@ -13,7 +13,7 @@ namespace IdeasTracker
         string ReadLine();
 
     }
-    public class IdeasPool : IUniqueId, IConsole
+    public class IdeasPool : IUniqueId
     {
         public Guid id { get; set; }
         public DateTime timeframe;
@@ -48,46 +48,46 @@ namespace IdeasTracker
             return idea;
         }
 
-        public (Idea, string) CheckAndAddIdeaCategory(Idea someIdea)
-        {
+        //public (Idea, string) CheckAndAddIdeaCategory(Idea someIdea)
+        //{
 
-            Console.WriteLine("Choose category based on the list below:");
-            Console.WriteLine(
-            "ArtsandEntertainment\n",
-            "Marketing\n",
-            "ContentMarketing\n",
-            "Design\n",
-            "FoodAndHospitality\n",
-            "Writing\n",
-            "SportAndFitness\n",
-            "Technology");
+        //    Console.WriteLine("Choose category based on the list below:");
+        //    Console.WriteLine(
+        //    "ArtsandEntertainment\n",
+        //    "Marketing\n",
+        //    "ContentMarketing\n",
+        //    "Design\n",
+        //    "FoodAndHospitality\n",
+        //    "Writing\n",
+        //    "SportAndFitness\n",
+        //    "Technology");
 
-            string? userInput = Console.ReadLine();
-            if (category.Contains(userInput))
-            {
-                var combinedIdea = new Tuple<Idea, string>(someIdea, userInput);
-                return combinedIdea;
+        //    string? userInput = Console.ReadLine();
+        //    if (category.Contains(userInput))
+        //    {
+        //        var combinedIdea = new Tuple<Idea, string>(someIdea, userInput);
+        //        return combinedIdea;
 
-            }
-            else
-            {
-                return (IdeaEntry(someIdea), "Other");
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        return (IdeaEntry(someIdea), "Other");
+        //    }
+        //}
 
-        public void AddNewIdeatoEnteredIdeas(Idea idea)
-        {
-            enteredIdeas.Add(CheckAndAddIdeaCategory(idea));
-        }
+        //public void AddNewIdeatoEnteredIdeas(Idea idea)
+        //{
+        //    enteredIdeas.Add(CheckAndAddIdeaCategory(idea));
+        //}
 
         public double AverageIdeaScore(Idea idea)
         {
 
-            foreach (int eachScore in idea.ideasScores)
+            foreach (int eachScore in idea.ideaScores)
             {
                 idea.cumulativeIdeaScore += eachScore;
 
-                idea.cumulativeIdeaAverage = idea.cumulativeIdeaScore / idea.ideasScores.Count;
+                idea.cumulativeIdeaAverage = idea.cumulativeIdeaScore / idea.ideaScores.Count;
             }
             return idea.cumulativeIdeaAverage;
         }

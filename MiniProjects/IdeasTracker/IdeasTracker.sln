@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ProductUsers.cs = ProductUsers.cs
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTest", "ProjectTest\ProjectTest.csproj", "{FB85E6F8-DFCB-4B79-B58E-36797842C939}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdeasTracker", "IdeasTrackerProject\IdeasTracker.csproj", "{E96B7D08-93CE-4B47-B8E7-AA1BB8EF5492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdeaTrackerTest", "IdeasTrackerTest\IdeaTrackerTest\IdeaTrackerTest.csproj", "{BA0FD3EB-E8C9-4153-99B6-4D52ABB63402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FB85E6F8-DFCB-4B79-B58E-36797842C939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB85E6F8-DFCB-4B79-B58E-36797842C939}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB85E6F8-DFCB-4B79-B58E-36797842C939}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB85E6F8-DFCB-4B79-B58E-36797842C939}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E96B7D08-93CE-4B47-B8E7-AA1BB8EF5492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E96B7D08-93CE-4B47-B8E7-AA1BB8EF5492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E96B7D08-93CE-4B47-B8E7-AA1BB8EF5492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E96B7D08-93CE-4B47-B8E7-AA1BB8EF5492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0FD3EB-E8C9-4153-99B6-4D52ABB63402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0FD3EB-E8C9-4153-99B6-4D52ABB63402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0FD3EB-E8C9-4153-99B6-4D52ABB63402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0FD3EB-E8C9-4153-99B6-4D52ABB63402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

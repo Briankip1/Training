@@ -24,7 +24,7 @@ public class Idea : IUniqueId
 	public int cumulativeIdeaScore = 0;
 	public double cumulativeIdeaAverage = 0;
 	public string enteredCategory;
-    public List<int> ideasScores = new List<int>();
+	public List<int> ideaScores;
     public Idea()
 	{
 		
