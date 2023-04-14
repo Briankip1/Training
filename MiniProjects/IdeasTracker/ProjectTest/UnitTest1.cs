@@ -68,22 +68,27 @@ namespace ProjectTest
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
 
             var freshIdea = new Idea();
-
+            freshIdea.ideasScores = new List<int>() { 8, 12 };
             var scoreOne = freshPool.AverageIdeaScore(freshIdea);
             var scoreTwo = freshPool.AverageIdeaScore(freshIdea);
+            if (freshIdea.ideasScores.Count == 0)
+            {
+                throw new ArgumentNullException();
+            }
             Assert.Equal(scoreOne, scoreTwo);
           
         }
 
-        
-
+       
         [Fact]
         public void Categorize_Ideas_Based_on_the_scores_received()
         {
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
+            var freshIdea = new Idea();
+
             double averageIdeaScore = 8;
 
-            var result = freshPool.ClassifyIdea(new Idea());
+            freshPool.ClassifyIdea(freshIdea);
             if(averageIdeaScore < 12)
             {
                 freshPool.rejectedIdeas.Count.Should.Be(1);

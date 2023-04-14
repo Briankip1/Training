@@ -96,17 +96,13 @@ namespace IdeasTracker
         {
             if (AverageIdeaScore(idea) >= 12)
             {
-                acceptedIdeas.Add(idea);
-                return acceptedIdeas;
+                acceptedIdeas.Add(idea);               
             }
             if (AverageIdeaScore(idea) < 12)
             {
-                rejectedIdeas.Add(idea);
-                return rejectedIdeas;
+                rejectedIdeas.Add(idea);               
             }
-
-            reviewedIdeas.Add(idea);
-            return reviewedIdeas;
+             reviewedIdeas.Add(idea);
         }
 
         
