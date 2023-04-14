@@ -92,7 +92,7 @@ namespace IdeasTracker
             return idea.cumulativeIdeaAverage;
         }
 
-        public List<Idea> ClassifyIdea(Idea idea)
+        public void ClassifyIdea(Idea idea)
         {
             if (AverageIdeaScore(idea) >= 12)
             {

@@ -1,4 +1,5 @@
 
+using System.Data;
 using System.Xml.Schema;
 using FluentAssertions;
 using IdeasTracker;
@@ -46,11 +47,12 @@ namespace ProjectTest
         public void Returns_the_average_of_score_of_an_idea_as_inputed_by_indvidual_reviewers()
         {
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
+
             var freshIdea = new Idea();
-            freshIdea.ideasScores = new List<int>() {8,12};
-            var expectedOutput = (freshIdea.ideasScores[0] + freshIdea.ideasScores[1])/freshIdea.ideasScores.Count;
-            var result = freshPool.AverageIdeaScore(new Idea());
-            if(expectedOutput == result)
+            freshIdea.ideasScores = new List<int>() { 8, 12 };
+            var expectedOutput = (freshIdea.ideasScores[0] + freshIdea.ideasScores[1]) / freshIdea.ideasScores.Count;
+            var result = freshPool.AverageIdeaScore(freshIdea);
+            if (expectedOutput == result)
             {
                 Console.WriteLine("The function works correctly");
             }
@@ -61,19 +63,35 @@ namespace ProjectTest
         }
 
         [Fact]
-        public void Categorize_Ideas_Based_on_the_scores_received()
+        public void Testing_Whether_the_averageIdeaScore_return_same_value()
         {
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
 
+            var freshIdea = new Idea();
+
+            var scoreOne = freshPool.AverageIdeaScore(freshIdea);
+            var scoreTwo = freshPool.AverageIdeaScore(freshIdea);
+            Assert.Equal(scoreOne, scoreTwo);
+          
+        }
+
+        
+
+        [Fact]
+        public void Categorize_Ideas_Based_on_the_scores_received()
+        {
+            var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
+            double averageIdeaScore = 8;
+
             var result = freshPool.ClassifyIdea(new Idea());
+            if(averageIdeaScore < 12)
+            {
+                freshPool.rejectedIdeas.Count.Should.Be(1);
+            }
             if(result == null || result.Count < 0)
             {
                 throw new ArgumentNullException();
             }
-
-
-
-
 
         }
     }
