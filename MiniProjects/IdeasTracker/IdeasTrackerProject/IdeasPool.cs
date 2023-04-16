@@ -82,12 +82,11 @@ namespace IdeasTracker
 
         public double AverageIdeaScore(Idea idea)
         {
-
-            foreach (int eachScore in idea.ideaScores)
+            int cumulativeIdeaScore = 0;
+            foreach (IdeaScore eachScore in idea.ideaScores)
             {
-                idea.cumulativeIdeaScore += eachScore;
-
-                idea.cumulativeIdeaAverage = idea.cumulativeIdeaScore / idea.ideaScores.Count;
+                cumulativeIdeaScore += eachScore.totalScore;
+                idea.cumulativeIdeaAverage = cumulativeIdeaScore / idea.ideaScores.Count;
             }
             return idea.cumulativeIdeaAverage;
         }

@@ -16,18 +16,11 @@ public class Idea : IUniqueId
 	public string description;
 	public string sponsor;
 	public DateTime date;
-    public int totalScore = 0;
-    public int timeScore = 0;
-	public int cost = 0;
-	public int potentialImpact = 0;
-	public int monetaryImpact = 0;
-	public int cumulativeIdeaScore = 0;
 	public double cumulativeIdeaAverage = 0;
 	public string enteredCategory;
-	public List<int> ideaScores;
+	public List<IdeaScore> ideaScores = new List<IdeaScore>();
     public Idea()
-	{
-		
+	{	
 	}
     public Idea(string title, string description, string sponsor, DateTime date)
 	{
