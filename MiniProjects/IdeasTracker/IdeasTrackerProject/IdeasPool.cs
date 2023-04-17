@@ -8,12 +8,11 @@ namespace IdeasTracker
   
     public interface IConsole
     {
-        Idea IdeaEntry(Idea idea);
         void WriteLine(string text);
         string ReadLine();
-
     }
-    public class IdeasPool : IUniqueId
+    
+    public class IdeasPool : IUniqueId, IConsole
     {
         public Guid id { get; set; }
         public DateTime timeframe;
@@ -33,6 +32,15 @@ namespace IdeasTracker
             this.priority = priority;
         }
 
+        public void WriteLine(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        public string ReadLine()
+        {
+            return Console.ReadLine();
+        }
         public Idea IdeaEntry(Idea idea, IConsole console)
         {
             console.WriteLine("Enter title name:");
@@ -47,38 +55,6 @@ namespace IdeasTracker
             idea.enteredCategory = console.ReadLine(); 
             return idea;
         }
-
-        //public (Idea, string) CheckAndAddIdeaCategory(Idea someIdea)
-        //{
-
-        //    Console.WriteLine("Choose category based on the list below:");
-        //    Console.WriteLine(
-        //    "ArtsandEntertainment\n",
-        //    "Marketing\n",
-        //    "ContentMarketing\n",
-        //    "Design\n",
-        //    "FoodAndHospitality\n",
-        //    "Writing\n",
-        //    "SportAndFitness\n",
-        //    "Technology");
-
-        //    string? userInput = Console.ReadLine();
-        //    if (category.Contains(userInput))
-        //    {
-        //        var combinedIdea = new Tuple<Idea, string>(someIdea, userInput);
-        //        return combinedIdea;
-
-        //    }
-        //    else
-        //    {
-        //        return (IdeaEntry(someIdea), "Other");
-        //    }
-        //}
-
-        //public void AddNewIdeatoEnteredIdeas(Idea idea)
-        //{
-        //    enteredIdeas.Add(CheckAndAddIdeaCategory(idea));
-        //}
 
         public double AverageIdeaScore(Idea idea)
         {
