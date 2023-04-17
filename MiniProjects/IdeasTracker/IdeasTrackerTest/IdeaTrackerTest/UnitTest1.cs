@@ -15,7 +15,7 @@ namespace IdeaTrackerTest
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
 
             var freshIdea = new Idea();
-            freshIdea.ideaScores = new List<IdeaScore>() { 8, 12 };
+            freshIdea.ideaScores = new List<IdeaScore>() { 8, 12};
             var expectedOutput = (freshIdea.ideaScores[0] + freshIdea.ideaScores[1]) / freshIdea.ideaScores.Count;
             var result = freshPool.AverageIdeaScore(freshIdea);
             if (expectedOutput == result)
@@ -71,6 +71,27 @@ namespace IdeaTrackerTest
             
             throw new ArgumentOutOfRangeException();
         }
+
+        public class TestConsole: IConsole
+        {
+            [Fact]
+            public void Accept_user_input_of_idea_initialization()
+            {
+
+            }
+           
+            public void WriteLine(string message)
+            {
+                Console.WriteLine(message);
+            }
+
+            public string ReadLine()
+            {
+                return Console.ReadLine();
+            }
+
+        }
+        
 
 
 
