@@ -12,7 +12,7 @@ namespace IdeasTracker
         string ReadLine();
     }
     
-    public class IdeasPool : IUniqueId, IConsole
+    public class IdeasPool : IUniqueId
     {
         public Guid id { get; set; }
         public DateTime timeframe;
@@ -32,15 +32,6 @@ namespace IdeasTracker
             this.priority = priority;
         }
 
-        public void WriteLine(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-        public string ReadLine()
-        {
-            return Console.ReadLine();
-        }
         public Idea IdeaEntry(Idea idea, IConsole console)
         {
             console.WriteLine("Enter title name:");

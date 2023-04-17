@@ -15,8 +15,15 @@ namespace IdeaTrackerTest
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
 
             var freshIdea = new Idea();
-            freshIdea.ideaScores = new List<IdeaScore>() { 8, 12};
-            var expectedOutput = (freshIdea.ideaScores[0] + freshIdea.ideaScores[1]) / freshIdea.ideaScores.Count;
+            freshIdea.ideaScores = new List<IdeaScore>();
+            var score = new IdeaScore();
+            score.totalScore = 10;
+            var score1 = new IdeaScore();
+            score1.totalScore = 12;
+            freshIdea.ideaScores.Add(score);
+            freshIdea.ideaScores.Add(score1);
+           
+            var expectedOutput = (10 + 12) / freshIdea.ideaScores.Count;
             var result = freshPool.AverageIdeaScore(freshIdea);
             if (expectedOutput == result)
             {
@@ -34,7 +41,14 @@ namespace IdeaTrackerTest
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
 
             var freshIdea = new Idea();
-            freshIdea.ideaScores = new List<IdeaScore>() { 8, 12 };
+            freshIdea.ideaScores = new List<IdeaScore>();
+            var score = new IdeaScore();
+            score.totalScore = 10;
+            var score1 = new IdeaScore();
+            score1.totalScore = 12;
+            freshIdea.ideaScores.Add(score);
+            freshIdea.ideaScores.Add(score1);
+
             var scoreOne = freshPool.AverageIdeaScore(freshIdea);
             var scoreTwo = freshPool.AverageIdeaScore(freshIdea);
             if (freshIdea.ideaScores.Count == 0)
@@ -51,13 +65,11 @@ namespace IdeaTrackerTest
         {
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
             var freshIdea = new Idea();
-            var result = freshPool.AverageIdeaScore(freshIdea);
-            result = 13;
+            freshIdea.cumulativeIdeaAverage = 13;
+
             freshPool.ClassifyIdea(freshIdea);
 
             freshPool.acceptedIdeas.Should().Contain(freshIdea);
-
-            throw new ArgumentOutOfRangeException();
         }
 
         [Fact]
@@ -68,30 +80,20 @@ namespace IdeaTrackerTest
             freshIdea.cumulativeIdeaAverage = 10;
             
             freshPool.rejectedIdeas.Should().Contain(freshIdea);
-            
-            throw new ArgumentOutOfRangeException();
         }
-
-        public class TestConsole: IConsole
+        [Fact]
+        public void Accept_user_input_of_idea_initialization()
         {
-            [Fact]
-            public void Accept_user_input_of_idea_initialization()
-            {
+            var testConsole = new TestConsole();
+            var freshIdea = new Idea();
+            var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
+            freshPool.IdeaEntry(freshIdea, testConsole);
+            freshIdea.title.Should().Be(string.Empty);
 
-            }
-           
-            public void WriteLine(string message)
-            {
-                Console.WriteLine(message);
-            }
 
-            public string ReadLine()
-            {
-                return Console.ReadLine();
-            }
 
         }
-        
+       
 
 
 
