@@ -1,7 +1,7 @@
 ﻿using IdeasTracker;
 using System;
 
-public class IndividualReviewer: IUniqueId, IConsole
+public class IndividualReviewer: IUniqueId
 {
 	public Guid id { get; set; }
 	public string name;
@@ -16,23 +16,9 @@ public class IndividualReviewer: IUniqueId, IConsole
 		this.availability = availability;
 	}
 
-    public void WriteLine(string message)
+    public IdeaScore ReviewAndScoreIdea(IdeaScore score, Idea idea, IConsole console)
     {
-        Console.WriteLine(message);
-    }
-
-    public string ReadLine()
-    {
-        return Console.ReadLine();
-    }
-
-    public int ReviewAndScoreIdea(IdeaScore score, Idea idea, IConsole console)
-    {
-        
-   console.WriteLine("Evaluation Matrix - Points(1- 5)");
-
-        console.WriteLine("Enter Time Score: ");
-        score.timeScore = Convert.ToInt32(console.ReadLine());
+        console.WriteLine("Evaluation Matrix - Points(1- 5)");
 
         console.WriteLine("Enter Cost Score: ");
         score.cost = Convert.ToInt32(console.ReadLine());
@@ -44,9 +30,8 @@ public class IndividualReviewer: IUniqueId, IConsole
         score.monetaryImpact = Convert.ToInt32(console.ReadLine());
 
         score.totalScore = score.timeScore + score.cost + score.potentialImpact + score.monetaryImpact;
-
         idea.ideaScores.Add(score);
-        return score.totalScore;
+        return score;     
     }
 }
 

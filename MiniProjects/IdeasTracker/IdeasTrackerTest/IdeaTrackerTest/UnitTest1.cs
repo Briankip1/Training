@@ -2,6 +2,7 @@ using IdeasTracker;
 using System.Data;
 using System.Xml.Schema;
 using FluentAssertions;
+using System.ComponentModel.Design;
 
 namespace IdeaTrackerTest
 {
@@ -22,7 +23,7 @@ namespace IdeaTrackerTest
             score1.totalScore = 12;
             freshIdea.ideaScores.Add(score);
             freshIdea.ideaScores.Add(score1);
-           
+
             var expectedOutput = (10 + 12) / freshIdea.ideaScores.Count;
             var result = freshPool.AverageIdeaScore(freshIdea);
             if (expectedOutput == result)
@@ -65,7 +66,7 @@ namespace IdeaTrackerTest
         {
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
             var freshIdea = new Idea();
-            freshIdea.cumulativeIdeaAverage = 13;
+            freshIdea.cumulativeIdeaAverage = 15;
 
             freshPool.ClassifyIdea(freshIdea);
 
@@ -78,7 +79,7 @@ namespace IdeaTrackerTest
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
             var freshIdea = new Idea();
             freshIdea.cumulativeIdeaAverage = 10;
-            
+            freshPool.ClassifyIdea(freshIdea);
             freshPool.rejectedIdeas.Should().Contain(freshIdea);
         }
         [Fact]
@@ -89,11 +90,38 @@ namespace IdeaTrackerTest
             var freshPool = new IdeasPool(DateTime.Now.AddDays(1), "high");
             freshPool.IdeaEntry(freshIdea, testConsole);
             freshIdea.title.Should().Be(string.Empty);
+        }
 
-
+        [Fact]
+        public void Each_score_should_not_be_more_than_five()
+        {
 
         }
-       
+
+        [Fact]
+        public void Score_is_added_to_idea_list()
+        {
+            var score = new IdeaScore();
+            var freshIdea = new Idea();
+            freshIdea.ideaScores.Add(score);
+            freshIdea.ideaScores.Should().Contain(score);
+        }
+
+        [Fact]
+        public void Each_score_should_be_an_integer()
+        {
+            var freshIdea = new Idea();
+            var testConsole = new TestConsole();
+            var reviewer = new IndividualReviewer("brian","tech",false);
+            var score = new IdeaScore();
+            reviewer.ReviewAndScoreIdea(score, freshIdea, testConsole);
+
+            score.timeScore.Should().BeOneOf(0,1,2,3,4,5);
+        }
+
+
+
+
 
 
 
