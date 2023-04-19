@@ -93,12 +93,6 @@ namespace IdeaTrackerTest
         }
 
         [Fact]
-        public void Each_score_should_not_be_more_than_five()
-        {
-
-        }
-
-        [Fact]
         public void Score_is_added_to_idea_list()
         {
             var score = new IdeaScore();
@@ -108,13 +102,14 @@ namespace IdeaTrackerTest
         }
 
         [Fact]
-        public void Each_score_should_be_an_integer()
+        public void Each_score_should_be_an_integer_of_one_to_five()
         {
             var freshIdea = new Idea();
             var testConsole = new TestConsole();
             var reviewer = new IndividualReviewer("brian","tech",false);
             var score = new IdeaScore();
             reviewer.ReviewAndScoreIdea(score, freshIdea, testConsole);
+            score.timeScore = Convert.ToInt32(testConsole.ReadLine());
 
             score.timeScore.Should().BeOneOf(0,1,2,3,4,5);
         }

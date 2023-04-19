@@ -15,7 +15,7 @@ namespace IdeasTracker
 
         public string ReadLine()
         {
-            return string.Empty;
+            return "0";
         }
 
     }

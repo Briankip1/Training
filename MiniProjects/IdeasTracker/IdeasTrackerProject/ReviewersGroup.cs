@@ -1,6 +1,7 @@
 ﻿using IdeasTracker;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 using System.Security.Principal;
 
 public class ReviewersGroup
@@ -31,15 +32,25 @@ public class ReviewersGroup
 	}
 	public List<Idea> AssignIdeasForReview(List<Idea> availableIdeas, List<IndividualReviewer> reviewers)
 	{
-		foreach (Idea idea in availableIdeas)
+        Random random = new Random();
+        Dictionary<Idea, List<IndividualReviewer>> assignedIdeas = new Dictionary<Idea, List<IndividualReviewer>>();
+        while(availableIdeas.Count > 0)
 		{
-			foreach(IndividualReviewer reviewer in reviewers)
+            List<IndividualReviewer> assignedReviewers = new List<IndividualReviewer>();
+
+			foreach(Idea idea in availableIdeas)
 			{
-				Dictionary<Idea, IndividualReviewer> pairs = new Dictionary<Idea, IndividualReviewer>();
-				pairs.Add(idea, reviewer);
-			}
-		}
-		
+                for (int i = 0; i < 2; i++)
+                {
+                    int reviewerIndex = random.Next(reviewers.Count);
+                    IndividualReviewer reviewer = reviewers[reviewerIndex];
+                    assignedReviewers.Add(reviewer);
+                    reviewers.RemoveAt(reviewerIndex);
+                }
+                assignedIdeas.Add(idea, assignedReviewers);
+				availableIdeas.Remove(idea);
+            }       
+		}							
 		return null;
 	}
 
