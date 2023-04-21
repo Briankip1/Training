@@ -7,6 +7,7 @@ public class IndividualReviewer: IUniqueId
 	public string name;
 	public string areaOfExpertise;
 	public bool availability;
+    public List<Idea> assignedIdeas = new List<Idea>();
     
 
     public IndividualReviewer(string name, string areaOfExpertise, bool availability)

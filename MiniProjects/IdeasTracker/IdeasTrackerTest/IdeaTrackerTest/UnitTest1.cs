@@ -114,6 +114,21 @@ namespace IdeaTrackerTest
             score.timeScore.Should().BeOneOf(0,1,2,3,4,5);
         }
 
+        [Fact]
+        public void Check_whether_idea_is_assigned_to_two_reviewers()
+        {
+            var freshIdea = new Idea();
+            var reviewers = new ReviewersGroup("tech", true, 5);
+            
+
+
+        }
+
+        [Fact]
+        public void Check_whether_the_idea_has_been_removed_from_available_ideas()
+        {
+
+        }
 
 
 

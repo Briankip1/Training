@@ -10,6 +10,7 @@ public class ReviewersGroup
 	public string areaOfExpertise;
 	public bool availability;
 	public int yearsOfExperience;
+	public List<IndividualReviewer> reviewersList = new List<IndividualReviewer>();
 
 	public Dictionary<string, string> matchingSpecializations = new Dictionary<string, string>()
 	{
@@ -36,7 +37,7 @@ public class ReviewersGroup
         Dictionary<Idea, List<IndividualReviewer>> assignedIdeas = new Dictionary<Idea, List<IndividualReviewer>>();
         while(availableIdeas.Count > 0)
 		{
-            List<IndividualReviewer> assignedReviewers = new List<IndividualReviewer>();
+           
 
 			foreach(Idea idea in availableIdeas)
 			{
@@ -44,14 +45,13 @@ public class ReviewersGroup
                 {
                     int reviewerIndex = random.Next(reviewers.Count);
                     IndividualReviewer reviewer = reviewers[reviewerIndex];
-                    assignedReviewers.Add(reviewer);
-                    reviewers.RemoveAt(reviewerIndex);
+                    assignedReviewers.Add(reviewer);                    
                 }
                 assignedIdeas.Add(idea, assignedReviewers);
 				availableIdeas.Remove(idea);
             }       
-		}							
-		return null;
+		}
+		return availableIdeas;
 	}
 
 	public void ProvideFeedBack()

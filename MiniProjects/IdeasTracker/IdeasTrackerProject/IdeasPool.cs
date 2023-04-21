@@ -17,13 +17,11 @@ namespace IdeasTracker
         public Guid id { get; set; }
         public DateTime timeframe;
         public string priority;
-        public List<Tuple<Idea,string>>enteredIdeas = new();
+        public List<Idea>enteredIdeas = new List<Idea>();
         public List<Idea> reviewedIdeas = new List<Idea>();
         public List<Idea> acceptedIdeas = new List<Idea>();
         public List<Idea> rejectedIdeas = new List<Idea>();
         public List<string> category = new List<string>() { "ArtsandEntertainment", "Marketing", "ContentMarketing", "Design", "FoodAndHospitality", "Writing", "SportAndFitness", "Technology" };
-
-
 
         public IdeasPool(DateTime date, string priority)
         {
