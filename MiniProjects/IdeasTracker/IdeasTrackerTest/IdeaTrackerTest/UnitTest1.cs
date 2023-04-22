@@ -120,8 +120,6 @@ namespace IdeaTrackerTest
             var freshIdea = new Idea();
             var reviewers = new ReviewersGroup("tech", true, 5);
             
-
-
         }
 
         [Fact]

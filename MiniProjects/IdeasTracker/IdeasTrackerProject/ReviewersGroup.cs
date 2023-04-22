@@ -10,7 +10,7 @@ public class ReviewersGroup
 	public string areaOfExpertise;
 	public bool availability;
 	public int yearsOfExperience;
-	public List<IndividualReviewer> reviewersList = new List<IndividualReviewer>();
+	public List<IndividualReviewer> assignedReviewers = new List<IndividualReviewer>();
 
 	public Dictionary<string, string> matchingSpecializations = new Dictionary<string, string>()
 	{
@@ -31,27 +31,24 @@ public class ReviewersGroup
 		this.yearsOfExperience= yearsOfExperience;
 		
 	}
-	public List<Idea> AssignIdeasForReview(List<Idea> availableIdeas, List<IndividualReviewer> reviewers)
+	public void AssignIdeasForReview(List<Idea> availableIdeas, List<IndividualReviewer> reviewers, IndividualReviewer reviewer)
 	{
         Random random = new Random();
-        Dictionary<Idea, List<IndividualReviewer>> assignedIdeas = new Dictionary<Idea, List<IndividualReviewer>>();
         while(availableIdeas.Count > 0)
 		{
-           
-
-			foreach(Idea idea in availableIdeas)
+			foreach(Idea latestIdea in availableIdeas)
 			{
                 for (int i = 0; i < 2; i++)
                 {
                     int reviewerIndex = random.Next(reviewers.Count);
-                    IndividualReviewer reviewer = reviewers[reviewerIndex];
-                    assignedReviewers.Add(reviewer);                    
-                }
-                assignedIdeas.Add(idea, assignedReviewers);
-				availableIdeas.Remove(idea);
+                    reviewer = reviewers[reviewerIndex];
+					assignedReviewers.Add(reviewer);
+					reviewers.Remove(reviewer);
+				}
+                reviewer.assignedIdeas.Add(latestIdea);
+				availableIdeas.Remove(latestIdea);
             }       
 		}
-		return availableIdeas;
 	}
 
 	public void ProvideFeedBack()
