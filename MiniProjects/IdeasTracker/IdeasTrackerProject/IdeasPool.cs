@@ -42,6 +42,7 @@ namespace IdeasTracker
             idea.date = DateTime.Now;
             console.WriteLine("Enter the category: ");
             idea.enteredCategory = console.ReadLine(); 
+            enteredIdeas.Add( idea );
             return idea;
         }
 

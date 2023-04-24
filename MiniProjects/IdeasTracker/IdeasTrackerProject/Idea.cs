@@ -19,14 +19,15 @@ public class Idea : IUniqueId
 	public double cumulativeIdeaAverage = 0;
 	public string enteredCategory;
 	public List<IdeaScore> ideaScores = new List<IdeaScore>();
+
     public Idea()
 	{	
 	}
-    public Idea(string title, string description, string sponsor, DateTime date)
-	{
-		this.title = title;
-		this.description = description;
-		this.sponsor = sponsor;
-		this.date = date;
-	}
+ //   public Idea(string title, string description, string sponsor, DateTime date)
+	//{
+	//	this.title = title;
+	//	this.description = description;
+	//	this.sponsor = sponsor;
+	//	this.date = date;
+	//}
 }

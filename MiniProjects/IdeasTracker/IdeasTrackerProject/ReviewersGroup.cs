@@ -10,9 +10,10 @@ public class ReviewersGroup
 	public string areaOfExpertise;
 	public bool availability;
 	public int yearsOfExperience;
-	public List<IndividualReviewer> assignedReviewers = new List<IndividualReviewer>();
+    public List<IndividualReviewer> availableReviewers = new List<IndividualReviewer>();
+    public Dictionary<Idea, List<IndividualReviewer>> assignedReviewers = new Dictionary<Idea, List<IndividualReviewer>>();
 
-	public Dictionary<string, string> matchingSpecializations = new Dictionary<string, string>()
+    public Dictionary<string, string> matchingSpecializations = new Dictionary<string, string>()
 	{
 		{"ArtsandEntertainment", "artist" },
 		{ "Marketing", "marketing professional"},
@@ -31,32 +32,32 @@ public class ReviewersGroup
 		this.yearsOfExperience= yearsOfExperience;
 		
 	}
-	public void AssignIdeasForReview(List<Idea> availableIdeas, List<IndividualReviewer> reviewers, IndividualReviewer reviewer)
+	
+    public void AssignIdeasForReview(IdeasPool availableIdeas, IndividualReviewer reviewer)
 	{
         Random random = new Random();
-        while(availableIdeas.Count > 0)
+        
+        while (availableIdeas.enteredIdeas.Count > 0)
 		{
-			foreach(Idea latestIdea in availableIdeas)
+			for( int j = 0; j < availableIdeas.enteredIdeas.Count; j++)
 			{
+
+                Idea latestIdea = availableIdeas.enteredIdeas[j];
+				List<IndividualReviewer> twoReviewers = new List<IndividualReviewer>();
                 for (int i = 0; i < 2; i++)
                 {
-                    int reviewerIndex = random.Next(reviewers.Count);
-                    reviewer = reviewers[reviewerIndex];
-					assignedReviewers.Add(reviewer);
-					reviewers.Remove(reviewer);
-				}
+                    int reviewerIndex = random.Next(availableReviewers.Count);
+                    IndividualReviewer chosenReviewer = availableReviewers[reviewerIndex];
+					 twoReviewers.Add(chosenReviewer);		                   
+                }
+                assignedReviewers.Add(latestIdea, twoReviewers);
                 reviewer.assignedIdeas.Add(latestIdea);
-				availableIdeas.Remove(latestIdea);
+                availableIdeas.enteredIdeas.Remove(latestIdea);
             }       
 		}
 	}
 
 	public void ProvideFeedBack()
-	{
-
-	}
-
-	public void AddReviewers()
 	{
 
 	}

@@ -119,13 +119,29 @@ namespace IdeaTrackerTest
         {
             var freshIdea = new Idea();
             var reviewers = new ReviewersGroup("tech", true, 5);
-            
+            var reviewer = new IndividualReviewer("brian", "tech", true);
+            var reviewer1 = new IndividualReviewer("Mani", "product", false);
+            IdeasPool pool = new IdeasPool(DateTime.Now, "high");
+            List<IndividualReviewer>twoChosenReviewers = new List<IndividualReviewer> { reviewer, reviewer1 };
+            //reviewers.assignedReviewers.Add(freshIdea, twoChosenReviewers);
+            reviewers.AssignIdeasForReview(pool, reviewer);
+            reviewers.assignedReviewers.Should().Contain(freshIdea,twoChosenReviewers);
         }
 
         [Fact]
-        public void Check_whether_the_idea_has_been_removed_from_available_ideas()
+        public void Confirm_That_Assigned_Ideas_Are_Not_In_Available_Ideas() 
         {
-
+            var freshIdea = new Idea();
+            var reviewers = new ReviewersGroup("tech", true, 5);
+            var reviewer = new IndividualReviewer("brian", "tech",true);
+            var reviewer1 = new IndividualReviewer("Mani", "product", false);
+            reviewers.availableReviewers.Add(reviewer);
+            reviewers.availableReviewers.Add(reviewer1);
+            IdeasPool pool = new IdeasPool(DateTime.Now, "high");
+            pool.enteredIdeas.Add(freshIdea);
+            reviewers.AssignIdeasForReview(pool, reviewer);
+            reviewer.assignedIdeas.Should().Contain(freshIdea);
+            pool.enteredIdeas.Should().NotContain(freshIdea);
         }
 
 
