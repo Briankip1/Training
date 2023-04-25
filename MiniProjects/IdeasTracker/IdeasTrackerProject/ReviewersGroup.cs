@@ -4,14 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Security.Principal;
 
-public class ReviewersGroup
-{
-	
-	public string areaOfExpertise;
-	public bool availability;
-	public int yearsOfExperience;
+public class ReviewersGroup : IdeaStakeholders
+{	
     public List<IndividualReviewer> availableReviewers = new List<IndividualReviewer>();
-    public Dictionary<Idea, List<IndividualReviewer>> assignedReviewers = new Dictionary<Idea, List<IndividualReviewer>>();
+    public Dictionary<Idea, List<IndividualReviewer>> ideaAndAssignedReviewers = new Dictionary<Idea, List<IndividualReviewer>>();
 
     public Dictionary<string, string> matchingSpecializations = new Dictionary<string, string>()
 	{
@@ -25,7 +21,7 @@ public class ReviewersGroup
 		{"Technology", "software engineer" }
 	};
 
-	public ReviewersGroup(string areaOfExpertise, bool availability, int yearsOfExperience) 
+	public ReviewersGroup(string areaOfExpertise, bool availability, int yearsOfExperience) : base(areaOfExpertise, availability, yearsOfExperience)
 	{
 		this.areaOfExpertise = areaOfExpertise;
 		this.availability = availability;
@@ -33,28 +29,30 @@ public class ReviewersGroup
 		
 	}
 	
-    public void AssignIdeasForReview(IdeasPool availableIdeas, IndividualReviewer reviewer)
+    public void AssignIdeasForReview(IdeasPool availableIdeas)
 	{
         Random random = new Random();
         
-        while (availableIdeas.enteredIdeas.Count > 0)
+        
+		for( int j = 0; j < availableIdeas.enteredIdeas.Count; j++)
 		{
-			for( int j = 0; j < availableIdeas.enteredIdeas.Count; j++)
-			{
 
-                Idea latestIdea = availableIdeas.enteredIdeas[j];
-				List<IndividualReviewer> twoReviewers = new List<IndividualReviewer>();
-                for (int i = 0; i < 2; i++)
-                {
-                    int reviewerIndex = random.Next(availableReviewers.Count);
-                    IndividualReviewer chosenReviewer = availableReviewers[reviewerIndex];
-					 twoReviewers.Add(chosenReviewer);		                   
-                }
-                assignedReviewers.Add(latestIdea, twoReviewers);
-                reviewer.assignedIdeas.Add(latestIdea);
-                availableIdeas.enteredIdeas.Remove(latestIdea);
-            }       
-		}
+            Idea latestIdea = availableIdeas.enteredIdeas[j];
+			List<IndividualReviewer> twoReviewers = new List<IndividualReviewer>();
+            for (int i = 0; i < 2; i++)
+            {
+                int reviewerIndex = random.Next(availableReviewers.Count);
+                IndividualReviewer chosenReviewer = availableReviewers[reviewerIndex];
+				chosenReviewer.assignedIdeas.Add(latestIdea);
+					twoReviewers.Add(chosenReviewer);		                   
+            }
+            ideaAndAssignedReviewers.Add(latestIdea, twoReviewers);
+        }
+        while (availableIdeas.enteredIdeas.Count > 0)
+        {
+			Idea freshIdea = availableIdeas.enteredIdeas[0];
+            availableIdeas.enteredIdeas.Remove(freshIdea);
+        }
 	}
 
 	public void ProvideFeedBack()

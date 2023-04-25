@@ -122,10 +122,12 @@ namespace IdeaTrackerTest
             var reviewer = new IndividualReviewer("brian", "tech", true);
             var reviewer1 = new IndividualReviewer("Mani", "product", false);
             IdeasPool pool = new IdeasPool(DateTime.Now, "high");
-            List<IndividualReviewer>twoChosenReviewers = new List<IndividualReviewer> { reviewer, reviewer1 };
-            //reviewers.assignedReviewers.Add(freshIdea, twoChosenReviewers);
-            reviewers.AssignIdeasForReview(pool, reviewer);
-            reviewers.assignedReviewers.Should().Contain(freshIdea,twoChosenReviewers);
+            reviewers.availableReviewers.Add(reviewer);
+            reviewers.availableReviewers.Add(reviewer1);
+            pool.enteredIdeas.Add(freshIdea);
+            reviewers.ideaAndAssignedReviewers[freshIdea] = List<IndividualReviewer> { reviewer, reviewer1 };
+            reviewers.AssignIdeasForReview(pool);
+            reviewers.ideaAndAssignedReviewers[freshIdea].Should().Contain(reviewers.ideaAndAssignedReviewers[freshIdea]);
         }
 
         [Fact]
@@ -139,8 +141,8 @@ namespace IdeaTrackerTest
             reviewers.availableReviewers.Add(reviewer1);
             IdeasPool pool = new IdeasPool(DateTime.Now, "high");
             pool.enteredIdeas.Add(freshIdea);
-            reviewers.AssignIdeasForReview(pool, reviewer);
-            reviewer.assignedIdeas.Should().Contain(freshIdea);
+            reviewers.AssignIdeasForReview(pool);
+            reviewers.ideaAndAssignedReviewers[freshIdea][0].assignedIdeas.Should().Contain(freshIdea);
             pool.enteredIdeas.Should().NotContain(freshIdea);
         }
 

@@ -1,5 +1,6 @@
 ﻿using IdeasTracker;
 using System;
+using System.Security.Cryptography;
 
 public class IndividualReviewer: IUniqueId
 {
@@ -33,6 +34,11 @@ public class IndividualReviewer: IUniqueId
         score.totalScore = score.timeScore + score.cost + score.potentialImpact + score.monetaryImpact;
         idea.ideaScores.Add(score);
         return score;     
+    }
+
+    public void ProvideFeedback()
+    {
+
     }
 }
 
