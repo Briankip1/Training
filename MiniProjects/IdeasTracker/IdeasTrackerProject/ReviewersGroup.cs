@@ -23,9 +23,6 @@ public class ReviewersGroup : IdeaStakeholders
 
 	public ReviewersGroup(string areaOfExpertise, bool availability, int yearsOfExperience) : base(areaOfExpertise, availability, yearsOfExperience)
 	{
-		this.areaOfExpertise = areaOfExpertise;
-		this.availability = availability;
-		this.yearsOfExperience= yearsOfExperience;
 		
 	}
 	

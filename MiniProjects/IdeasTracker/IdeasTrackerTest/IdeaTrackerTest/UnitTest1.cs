@@ -106,7 +106,7 @@ namespace IdeaTrackerTest
         {
             var freshIdea = new Idea();
             var testConsole = new TestConsole();
-            var reviewer = new IndividualReviewer("brian","tech",false);
+            var reviewer = new IndividualReviewer("brian","tech",false,4);
             var score = new IdeaScore();
             reviewer.ReviewAndScoreIdea(score, freshIdea, testConsole);
             score.timeScore = Convert.ToInt32(testConsole.ReadLine());
@@ -119,13 +119,13 @@ namespace IdeaTrackerTest
         {
             var freshIdea = new Idea();
             var reviewers = new ReviewersGroup("tech", true, 5);
-            var reviewer = new IndividualReviewer("brian", "tech", true);
-            var reviewer1 = new IndividualReviewer("Mani", "product", false);
+            var reviewer = new IndividualReviewer("brian", "tech", true,4);
+            var reviewer1 = new IndividualReviewer("Mani", "product", false,3);
             IdeasPool pool = new IdeasPool(DateTime.Now, "high");
             reviewers.availableReviewers.Add(reviewer);
             reviewers.availableReviewers.Add(reviewer1);
             pool.enteredIdeas.Add(freshIdea);
-            reviewers.ideaAndAssignedReviewers[freshIdea] = List<IndividualReviewer> { reviewer, reviewer1 };
+            //reviewers.ideaAndAssignedReviewers[freshIdea] = List<IndividualReviewer> {reviewer,reviewer1 };
             reviewers.AssignIdeasForReview(pool);
             reviewers.ideaAndAssignedReviewers[freshIdea].Should().Contain(reviewers.ideaAndAssignedReviewers[freshIdea]);
         }
@@ -135,8 +135,8 @@ namespace IdeaTrackerTest
         {
             var freshIdea = new Idea();
             var reviewers = new ReviewersGroup("tech", true, 5);
-            var reviewer = new IndividualReviewer("brian", "tech",true);
-            var reviewer1 = new IndividualReviewer("Mani", "product", false);
+            var reviewer = new IndividualReviewer("brian", "tech",true,4);
+            var reviewer1 = new IndividualReviewer("Mani", "product", false,3);
             reviewers.availableReviewers.Add(reviewer);
             reviewers.availableReviewers.Add(reviewer1);
             IdeasPool pool = new IdeasPool(DateTime.Now, "high");
@@ -144,6 +144,30 @@ namespace IdeaTrackerTest
             reviewers.AssignIdeasForReview(pool);
             reviewers.ideaAndAssignedReviewers[freshIdea][0].assignedIdeas.Should().Contain(freshIdea);
             pool.enteredIdeas.Should().NotContain(freshIdea);
+        }
+
+        [Fact]
+        public void AssignedProjects_Removed_From_Accepted_Ideas_List()
+        {
+            var freshIdea = new Idea();
+            IdeasPool pool = new IdeasPool(DateTime.Now, "high");
+            var approvedIdeas = pool.acceptedIdeas;
+            approvedIdeas.Add(freshIdea);
+            Professional professionalpro = new Professional("product", true, 6);
+            var allocatedProjects = professionalpro.assignedProjects;
+            IdeasActionTeam team = new IdeasActionTeam("bio", true, 10);
+            var numberOfProjects = allocatedProjects.Count;
+            if(numberOfProjects > 2)
+            {
+                Assert.False(professionalpro.availability);
+            }
+            team.AssignProject(pool);
+            //numberOfProjects.Should().Be(2);
+            allocatedProjects.Should().Contain(freshIdea);
+            approvedIdeas.Should().NotContain(freshIdea);
+
+
+
         }
 
 

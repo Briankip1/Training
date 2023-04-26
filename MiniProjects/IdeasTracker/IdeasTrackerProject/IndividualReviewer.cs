@@ -2,16 +2,14 @@
 using System;
 using System.Security.Cryptography;
 
-public class IndividualReviewer: IUniqueId
+public class IndividualReviewer: IdeaStakeholders, IUniqueId
 {
 	public Guid id { get; set; }
-	public string name;
-	public string areaOfExpertise;
-	public bool availability;
+    public string name;
     public List<Idea> assignedIdeas = new List<Idea>();
     
 
-    public IndividualReviewer(string name, string areaOfExpertise, bool availability)
+    public IndividualReviewer(string name, string areaOfExpertise, bool availability, int yearsOfExperience): base(areaOfExpertise, availability, yearsOfExperience)
 	{
 		this.name = name;
 		this.areaOfExpertise = areaOfExpertise;
@@ -37,6 +35,11 @@ public class IndividualReviewer: IUniqueId
     }
 
     public void ProvideFeedback()
+    {
+
+    }
+
+    public void GenerateReport()
     {
 
     }

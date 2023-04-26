@@ -18,5 +18,10 @@ namespace IdeasTracker
             this.availability = availability;
             this.yearsOfExperience = yearsofexperience;  
         }
+
+        public void GenerateReport()
+        {
+
+        }
     }
 }
