@@ -24,12 +24,17 @@ public class IdeasActionTeam : IdeaStakeholders
 			{
 				int randomIndex = random.Next(AvailableActionTeam.Count);
 				Professional availableProfessional = AvailableActionTeam[randomIndex];
-				projectsAndProfessionals.Add(oneIdea, availableProfessional);
-				availableProfessional.assignedProjects.Add(oneIdea);
+                availableProfessional.assignedProjects.Add(oneIdea);
+                projectsAndProfessionals.Add(oneIdea, availableProfessional);
+				availableProfessional.availability = false;
 			}
 		}
-		approvedIdeas.acceptedIdeas.Clear();
-	}
+        while (approvedIdeas.acceptedIdeas.Count > 0)
+        {
+            Idea freshIdea = approvedIdeas.acceptedIdeas[0];
+            approvedIdeas.acceptedIdeas.Remove(freshIdea);
+        }
+    }
 
 	public void SetProjectTimeline()
 	{

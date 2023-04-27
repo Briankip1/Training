@@ -121,13 +121,13 @@ namespace IdeaTrackerTest
             var reviewers = new ReviewersGroup("tech", true, 5);
             var reviewer = new IndividualReviewer("brian", "tech", true,4);
             var reviewer1 = new IndividualReviewer("Mani", "product", false,3);
+            var reviewer2 = new IndividualReviewer("Joy","Marketing",true,4);
             IdeasPool pool = new IdeasPool(DateTime.Now, "high");
             reviewers.availableReviewers.Add(reviewer);
             reviewers.availableReviewers.Add(reviewer1);
             pool.enteredIdeas.Add(freshIdea);
-            //reviewers.ideaAndAssignedReviewers[freshIdea] = List<IndividualReviewer> {reviewer,reviewer1 };
             reviewers.AssignIdeasForReview(pool);
-            reviewers.ideaAndAssignedReviewers[freshIdea].Should().Contain(reviewers.ideaAndAssignedReviewers[freshIdea]);
+            reviewers.ideaAndAssignedReviewers[freshIdea].Should().Contain(reviewers.availableReviewers);
         }
 
         [Fact]
@@ -151,23 +151,18 @@ namespace IdeaTrackerTest
         {
             var freshIdea = new Idea();
             IdeasPool pool = new IdeasPool(DateTime.Now, "high");
-            var approvedIdeas = pool.acceptedIdeas;
-            approvedIdeas.Add(freshIdea);
-            Professional professionalpro = new Professional("product", true, 6);
-            var allocatedProjects = professionalpro.assignedProjects;
+            pool.acceptedIdeas.Add(freshIdea);
+            Professional professionalPro = new Professional("product", true, 6);
             IdeasActionTeam team = new IdeasActionTeam("bio", true, 10);
-            var numberOfProjects = allocatedProjects.Count;
-            if(numberOfProjects > 2)
-            {
-                Assert.False(professionalpro.availability);
-            }
+            team.AvailableActionTeam.Add(professionalPro);
+            var allocatedProjects = professionalPro.assignedProjects;
             team.AssignProject(pool);
-            //numberOfProjects.Should().Be(2);
-            allocatedProjects.Should().Contain(freshIdea);
-            approvedIdeas.Should().NotContain(freshIdea);
-
-
-
+            if (allocatedProjects.Count != 0)
+            {
+                Assert.False(professionalPro.availability);
+            }
+            professionalPro.assignedProjects.Should().Contain(freshIdea);
+            pool.acceptedIdeas.Should().NotContain(freshIdea);
         }
 
 
