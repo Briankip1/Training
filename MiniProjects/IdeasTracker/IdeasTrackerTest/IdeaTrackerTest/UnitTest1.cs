@@ -168,16 +168,17 @@ namespace IdeaTrackerTest
         [Fact]
         public void Set_estimated_project_timeline_and_send_regular_alerts()
         {
-            Project project = new Project(500, "design");
+            Project project = new Project(500, "design",4);
 
-            var numberofdaysneeded = project.estimatedProjectTimeline.AddDays(5);
-            var startProject = Project.projectState.Start;           
-            var projectUpdate = "Submit today's progress report";
- 
-            
+            project.estimatedProjectTimeline = 5;
+            var dailyProjectReport = "Submit today's progress report";
+            if (project.estimatedProjectTimeline > 0)
+            {
+                dailyProjectReport.Should().Be("Submit today's progress report");
 
-            project.ProjectTracking();
-            project.ProjectTracking().Should().Be(projectUpdate);
+            }
+            project.ProjectTimeTracking();
+            project.ProjectTimeTracking().Should().Be(dailyProjectReport);
 
 
 

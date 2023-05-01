@@ -11,7 +11,7 @@ namespace IdeasTracker
 
     public class Project
     {
-        public DateTime estimatedProjectTimeline;
+        public int estimatedProjectTimeline;
         public double estimatedCost;
         public string task;
         public enum projectState
@@ -21,19 +21,38 @@ namespace IdeasTracker
             Done
         }
         public List<Professional> assignedprofessionals= new List<Professional>();
-        public Project(double cost, string projectTask)
+        public Project(double cost, string projectTask, int timeline)
         {
             estimatedCost = cost;
             task = projectTask;
-            estimatedProjectTimeline = DateTime.Now;
+            estimatedProjectTimeline = timeline;
         }
 
-        public string ProjectTracking()
+        public string ProjectTimeTracking()
+        {
+            var projectStarted = projectState.Start;
+            for (int i = estimatedProjectTimeline; i > 0; i--)
+            {
+                Console.WriteLine("Send daily task report");
+            }
+            
+            if(estimatedProjectTimeline > 0)
+            {
+                Console.WriteLine("The task is late");
+            }
+            return null;
+        }
+
+        public double ProjectCost()
+        {
+            return estimatedCost;
+
+        }
+
+        public string taskProgress()
         {
             return null;
-
         }
-
 
 
 
