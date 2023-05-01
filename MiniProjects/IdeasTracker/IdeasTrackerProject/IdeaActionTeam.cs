@@ -2,17 +2,14 @@
 using System;
 using System.Security.Cryptography;
 
-public class IdeasActionTeam : IdeaStakeholders
+public class IdeasActionTeam
 {
-	public DateTime estimatedProjectTimeline;
 	public List<Idea> IdeasInProgress = new List<Idea>();
 	public List<Idea> CompletedIdeas = new List<Idea>();
 	public List<Professional> AvailableActionTeam = new List<Professional>();
-	public Dictionary<Idea, Professional> projectsAndProfessionals = new Dictionary<Idea, Professional>();
-	public IdeasActionTeam(string areaOfExpertise, bool availability, int yearsOfExperience): base(areaOfExpertise, availability, yearsOfExperience)
+	public Dictionary<Idea, Professional> assignedProjectsAndProfessionals = new Dictionary<Idea, Professional>();
+	public IdeasActionTeam()
 	{
-		estimatedProjectTimeline = new DateTime().AddDays(5);
-
 	}
 	public void AssignProject(IdeasPool approvedIdeas)
 	{
@@ -25,7 +22,7 @@ public class IdeasActionTeam : IdeaStakeholders
 				int randomIndex = random.Next(AvailableActionTeam.Count);
 				Professional availableProfessional = AvailableActionTeam[randomIndex];
                 availableProfessional.assignedProjects.Add(oneIdea);
-                projectsAndProfessionals.Add(oneIdea, availableProfessional);
+                assignedProjectsAndProfessionals.Add(oneIdea, availableProfessional);
 				availableProfessional.availability = false;
 			}
 		}
@@ -36,20 +33,6 @@ public class IdeasActionTeam : IdeaStakeholders
         }
     }
 
-	public void SetProjectTimeline()
-	{
-
-	}
-
-	public void UpdateOnProgress()
-	{
-
-	}
-
-	public void DetermineProjectFate()
-	{
-
-	}
 
 	public void GenerateProjectReport()
 	{

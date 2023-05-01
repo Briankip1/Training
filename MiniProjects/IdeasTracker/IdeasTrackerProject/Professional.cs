@@ -13,7 +13,11 @@ namespace IdeasTracker
 
         public Professional(string areaOfExpertise, bool availability, int yearsOfExperience): base(areaOfExpertise, availability,yearsOfExperience)
         {
-            
+        }
+
+        public void UpdateOnProgress()
+        {
+
         }
     }
 }

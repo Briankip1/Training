@@ -165,6 +165,28 @@ namespace IdeaTrackerTest
             pool.acceptedIdeas.Should().NotContain(freshIdea);
         }
 
+        [Fact]
+        public void Set_estimated_project_timeline_and_send_regular_alerts()
+        {
+            Project project = new Project(500, "design");
+
+            var numberofdaysneeded = project.estimatedProjectTimeline.AddDays(5);
+            var startProject = Project.projectState.Start;           
+            var projectUpdate = "Submit today's progress report";
+ 
+            
+
+            project.ProjectTracking();
+            project.ProjectTracking().Should().Be(projectUpdate);
+
+
+
+
+
+
+
+        }
+
 
 
 
